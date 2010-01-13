@@ -7,7 +7,6 @@ class UsersController extends AppController
     
     function beforeFilter()
     {
-        $this->Auth->loginRedirect = array('controller' => 'cms', 'action' => 'index');
     }
     
     function cms_index()
