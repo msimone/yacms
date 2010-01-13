@@ -1,1 +1,1 @@
-users - index
+<?=pr($this->params)?>
