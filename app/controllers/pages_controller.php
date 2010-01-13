@@ -3,12 +3,15 @@
 class PagesController extends AppController
 {
     var $name = 'Pages';
-    var $uses = array();
-    
+    var $uses = array('Page', 'User');
+	
+	function beforeFilter()
+	{
+		$this->Auth->allow('display');
+	}
+	
     function cms_index()
     {
-        echo "Pages/cms_index";
-        exit();
     }
     
     function cms_add()

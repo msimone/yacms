@@ -3,7 +3,12 @@
 class UsersController extends AppController
 {
     var $name = 'Users';
-    var $uses = array();
+    var $uses = array('User');
+    
+    function beforeFilter()
+    {
+        $this->Auth->loginRedirect = array('controller' => 'cms', 'action' => 'index');
+    }
     
     function cms_index()
     {
@@ -18,6 +23,28 @@ class UsersController extends AppController
     }
     
     function cms_remove($id = null)
+    {
+    }
+    
+    function cms_login()
+    {
+    }
+    
+    function cms_logout()
+    {
+        $this->redirect($this->Auth->logout());
+    }
+    
+    function login()
+    {
+    }
+    
+    function logout()
+    {
+        $this->redirect($this->Auth->logout());
+    }
+    
+    function register()
     {
     }
 }

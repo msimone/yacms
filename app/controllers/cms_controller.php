@@ -7,7 +7,6 @@ class CmsController extends AppController
     
     function cms_index()
     {
-        $this->layout = 'backend';
     }
 }
 
