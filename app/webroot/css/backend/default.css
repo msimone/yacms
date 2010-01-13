@@ -4,7 +4,7 @@ body
     height: 100%;
     font-family: Verdana, Geneva, sans-serif;
     
-    background-color: orange;
+    background-color: brown;
 }
 
 #menu
@@ -13,16 +13,109 @@ body
     height:  65px;
     margin: 0 auto;
     
-    background-color: red;
+    top: 0;
+    position: relative;
+    
+    background-color: #212121;
     -moz-border-radius: 0 0 10px 10px;
     -webkit-border-radius: 0 0 10px 10px;   
 }
+
+.menu-button
+{
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    
+    background-color: #212121;
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(/img/backend/home.png);
+    
+}
+
+.menu-button-hover
+{
+    background-color: #292929;
+}
+
+.menu-button-background
+{
+    float: left;
+    width: 50px;
+    height: 55px;
+    margin-top: 10px;
+    margin-left: 25px;
+    -moz-border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+}
+
+#menu-close,
+#menu-close-selected
+{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    
+    top: 5px;
+    right: 15px;
+    z-index: 100;
+    position: absolute;
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(/img/backend/menu-button-off.png);
+}
+
+#menu-close-selected
+{
+    background-image: url(/img/backend/menu-button-on.png);
+}
+
+#clock
+{
+    float: left;
+    width: 160px;
+    height: 65px;
+    margin-left: 15px;
+    
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+}
+
+#clock-time
+{
+    width: 160px;
+    height: 25px;
+    font-size: 15px;
+    margin-top: 5px;
+    line-height: 25px;
+}
+
+#clock-date
+{
+    width: 160px;
+    height: 25px;
+    font-size: 10px;
+    line-height: 25px;
+    background-color: #292929;
+    
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
 
 #content
 {
     width: 99%;
     height: auto;
     margin: 0 auto;
+    
+    top: 0;
+    position: relative;
     
     padding-top: 25px;
     padding-bottom: 25px;
