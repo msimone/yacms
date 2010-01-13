@@ -19,40 +19,40 @@
     <script src="/js/ifx.js" type="text/javascript"></script>
   </head>
   <body xml:lang="en">
-    <div id="menu-close">
-    </div>
-    <div id="menu">
-      <div id="clock">
-        <div id="clock-time">
+    
+    <?php if ($session->check('Auth.User.id')) { ?>
+        <div id="menu-button-close">
         </div>
-        <div id="clock-date">
+        <div id="menu">
+            <div id="clock">
+                <div id="clock-time">
+                </div>
+                <div id="clock-date">
+                </div>
+            </div>
+            <div id="menu-button-cms" class="menu-button">
+                <a class="menu-button-icon selectable" style="background-image: url(/img/backend/menu-button-cms.png)" href="/cms">
+                </a>
+            </div>
+            <div id="menu-button-pages" class="menu-button">
+                <a class="menu-button-icon selectable" style="background-image: url(/img/backend/menu-button-pages.png)" href="/cms/pages">
+                </a>
+            </div>
+            <div id="menu-button-users" class="menu-button">
+                <a class="menu-button-icon selectable" style="background-image: url(/img/backend/menu-button-users.png)" href="/cms/users">
+                </a>
+            </div>
+            <div id="menu-button-logout">
+                <a class="menu-button-icon" onclick="javascript: return confirm('You are about to logout, Proceed?')" style="background-image: url(/img/backend/menu-button-logout.png)" href="/cms/users/logout">
+                </a>
+            </div>
         </div>
-      </div>
-      
-      <div class="menu-button-background">
-        <div class="menu-button">
-        </div>
-      </div>
-      
-      <div class="menu-button-background">
-        <div class="menu-button">
-        </div>
-      </div>
-      
-      <div class="menu-button-background">
-        <div class="menu-button">
-        </div>
-      </div>
-      
-      <div class="menu-button-background">
-        <div class="menu-button">
-        </div>
-      </div>
-      
-    </div>
+    <?php } ?>
+    
     <div id="content">
       <?=$content_for_layout?>
     </div>
+    
     <script type="text/javascript">
     // <![CDATA[
     var months = ['January',  'February', 'March',    'April',
@@ -85,47 +85,38 @@
     {
       refresh_clock();
       
+      $('#menu-button-<?=$this->params['controller']?>').addClass('menu-button-active');
+      $('a', $('#menu-button-<?=$this->params['controller']?>')).addClass('menu-button-icon-active');
       
-      $('.menu-button').hover(
-        
-        function() {
-          
-          $(this).animate({className: 'menu-button-hover'}, 'normal');
-          
-          
-          },
-        function() {
-          
-          $(this).animate({className: 'menu-button'}, 'normal');
-          
-        }
-        
-      );
+      $('.menu-button-icon').hover(function() { $(this).animate({className: 'menu-button-icon-hover'}, 'normal'); },
+                                   function() { $(this).animate({className: 'menu-button-icon'}, 'normal'); });
       
-      
-      
-      $('#menu-close').click(function()
+      $('.menu-button-icon selectable').click(function()
       {
-        var menu = $('#menu');
-        var content = $('#content');
+        $('.menu-button').removeClass('menu-button-active');
+        $('.menu-button-icon').removeClass('menu-button-icon-active');
         
-        if (menu.attr('disabled'))
-        {
-          menu.removeAttr('disabled');
-          menu.animate({top: '0', opacity: '1'}, 'normal');
-          content.animate({top: '0', opacity: '1'}, 'normal');
-          $('#menu-close-selected').attr('id', 'menu-close');
-        }
-        else
-        {
-          menu.attr('disabled', 'disabled');
-          menu.animate({top: '-' + menu.css('height'), opacity: '0'}, 'normal');
-          content.animate({top: '-' + menu.css('height')}, 'normal');
-          $('#menu-close').attr('id', 'menu-close-selected');
-        }
+        $(this).addClass('menu-button-active');
+        $(this).parent().addClass('menu-button-icon-active');
       });
+      
+      $('#menu-button-close').toggle(function()
+                                     {
+                                        $('#menu').attr('disabled', 'disabled');
+                                        $('#menu').animate({top: '-' + $('#menu').css('height'), opacity: '0'}, 'slow');
+                                        $('#content').animate({top: '-' + $('#menu').css('height')}, 'slow');
+                                        $('#menu-button-close').attr('id', 'menu-button-close-selected');
+                                     },
+                                     function()
+                                     {
+                                        $('#menu').removeAttr('disabled');
+                                        $('#menu').animate({top: '0', opacity: '1'}, 'slow');
+                                        $('#content').animate({top: '0', opacity: '1'}, 'slow');
+                                        $('#menu-button-close-selected').attr('id', 'menu-button-close');
+                                     });
     });
     // ]]>
     </script>
+    
   </body>
 </html>

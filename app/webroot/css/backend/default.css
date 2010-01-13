@@ -23,8 +23,20 @@ body
 
 .menu-button
 {
+    float: left;
+    width: 50px;
+    height: 55px;
+    margin-top: 10px;
+    margin-left: 25px;
+    -moz-border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+}
+
+.menu-button-icon
+{
     width: 50px;
     height: 50px;
+    display: block;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     
@@ -32,16 +44,20 @@ body
     
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(/img/backend/home.png);
-    
 }
 
-.menu-button-hover
+.menu-button-icon-hover
 {
-    background-color: #292929;
+    background-color: #424242
 }
 
-.menu-button-background
+.menu-button-active,
+.menu-button-icon-active
+{
+    background-color: #FFFFFF !important;
+}
+
+#menu-button-logout
 {
     float: left;
     width: 50px;
@@ -52,8 +68,8 @@ body
     -webkit-border-radius: 10px 10px 0 0;
 }
 
-#menu-close,
-#menu-close-selected
+#menu-button-close,
+#menu-button-close-selected
 {
     width: 24px;
     height: 24px;
@@ -69,7 +85,7 @@ body
     background-image: url(/img/backend/menu-button-off.png);
 }
 
-#menu-close-selected
+#menu-button-close-selected
 {
     background-image: url(/img/backend/menu-button-on.png);
 }
@@ -103,8 +119,8 @@ body
     line-height: 25px;
     background-color: #292929;
     
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 
