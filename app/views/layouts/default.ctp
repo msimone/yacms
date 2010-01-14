@@ -9,10 +9,10 @@
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     
     <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/css/backend/default.css" />
+    <link rel="stylesheet" type="text/css" href="/css/cms/default.css" />
     
-    <link rel="shortcut icon" href="/img/backend/favicon.png" />
-    <link rel="icon" type="image/png" href="/img/backend/favicon.png" />
+    <link rel="shortcut icon" href="/img/cms/favicon.png" />
+    <link rel="icon" type="image/png" href="/img/cms/favicon.png" />
     
     <script src="/js/jquery-1.3.2.min.js" type="text/javascript"></script>
     
@@ -31,19 +31,19 @@
                 </div>
             </div>
             <div id="menu-button-cms" class="menu-button">
-                <a class="menu-button-icon selectable" style="background-image: url(/img/backend/menu-button-cms.png)" href="/cms">
+                <a class="menu-button-icon selectable" style="background-image: url(/img/cms/menu-button-cms.png)" href="/cms">
                 </a>
             </div>
             <div id="menu-button-pages" class="menu-button">
-                <a class="menu-button-icon selectable" style="background-image: url(/img/backend/menu-button-pages.png)" href="/cms/pages">
+                <a class="menu-button-icon selectable" style="background-image: url(/img/cms/menu-button-pages.png)" href="/cms/pages">
                 </a>
             </div>
             <div id="menu-button-users" class="menu-button">
-                <a class="menu-button-icon selectable" style="background-image: url(/img/backend/menu-button-users.png)" href="/cms/users">
+                <a class="menu-button-icon selectable" style="background-image: url(/img/cms/menu-button-users.png)" href="/cms/users">
                 </a>
             </div>
             <div id="menu-button-logout">
-                <a class="menu-button-icon" onclick="javascript: return confirm('You are about to logout, Proceed?')" style="background-image: url(/img/backend/menu-button-logout.png)" href="/cms/users/logout">
+                <a class="menu-button-icon" onclick="javascript: return confirm('You are about to logout, Proceed?')" style="background-image: url(/img/cms/menu-button-logout.png)" href="/cms/users/logout">
                 </a>
             </div>
         </div>
