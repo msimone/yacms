@@ -2,7 +2,7 @@
 
 class AppController extends Controller
 {
-    var $components = array('Auth');
+    //var $components = array('Auth');
 }
 
 ?>

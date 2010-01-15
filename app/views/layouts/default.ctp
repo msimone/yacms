@@ -9,22 +9,23 @@
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     
     <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/css/cms/default.css" />
+    <link rel="stylesheet" type="text/css" href="/css/backend/default.css" />
     
-    <link rel="shortcut icon" href="/img/cms/favicon.png" />
-    <link rel="icon" type="image/png" href="/img/cms/favicon.png" />
+    <link rel="shortcut icon" href="/img/backend/favicon.png" />
+    <link rel="icon" type="image/png" href="/img/backend/favicon.png" />
     
-    <script src="/js/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script src="/js/jquery-1.4.min.js" type="text/javascript"></script>
     <script src="/js/ifx.js" type="text/javascript"></script>
   </head>
   <body xml:lang="en">
     
-    <?php if ($session->check('Auth.User.id')) { ?>
-        <?=$this->element('cms/menu')?>
-    <?php } ?>
+    <?php /*if ($session->check('Auth.User.id')) { */?>
+        <?=$this->element('backend/menu')?>
+    <?php /*}*/ ?>
     
     <div id="content">
       <?=$content_for_layout?>
+      <div style="clear: both;"></div>
     </div>
     
     <script type="text/javascript">
@@ -76,14 +77,12 @@
       
       $('#menu-button-close').toggle(function()
                                      {
-                                        $('#menu').attr('disabled', 'disabled');
                                         $('#menu').animate({top: '-' + $('#menu').css('height'), opacity: '0'}, 'slow');
                                         $('#content').animate({top: '-' + $('#menu').css('height')}, 'slow');
                                         $('#menu-button-close').attr('id', 'menu-button-close-selected');
                                      },
                                      function()
                                      {
-                                        $('#menu').removeAttr('disabled');
                                         $('#menu').animate({top: '0', opacity: '1'}, 'slow');
                                         $('#content').animate({top: '0', opacity: '1'}, 'slow');
                                         $('#menu-button-close-selected').attr('id', 'menu-button-close');
