@@ -23,8 +23,8 @@ class PagesController extends AppController
 	
     function display($uri = 'index')
     {
-        echo "Pages/display ($uri)";
-        exit();
+		pr($this->params);
+		exit();
     }
 }
 

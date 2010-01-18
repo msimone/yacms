@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-01-18 10:01:15 : 1263822495*/
+/* App schema generated on: 2010-01-18 18:01:41 : 1263848861*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -51,12 +51,16 @@ class AppSchema extends CakeSchema {
 	);
 	var $users = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
-		'username' => array('type' => 'string', 'null' => false, 'default' => NULL),
-		'password' => array('type' => 'string', 'null' => false, 'default' => NULL),
 		'active' => array('type' => 'boolean', 'null' => false, 'default' => NULL),
 		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+		'username' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'password' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'first_name' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'last_name' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'telephone_home' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'telephone_work' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'index'),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'telephone_work' => array('column' => 'telephone_work', 'unique' => 0))
 	);
 }
 ?>

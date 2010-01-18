@@ -1,6 +1,6 @@
 body
 {
-    background-color: brown;
+    background-color: #0089A3;
     font-family: Verdana, Geneva, sans-serif;
 }
 
@@ -122,6 +122,8 @@ body
     
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
+    
+    border: 1px solid transparent;
 }
 
 #column_left
@@ -148,7 +150,42 @@ body
     margin-top: 25px;
     margin-left: 25px;
     margin-bottom: 25px;
-    
-    background-color: grey;
 }
 
+#column_right div.disabled
+{
+    display: none;
+}
+
+#column_right table
+{
+    width: 100%;
+    margin-top: 10px;
+}
+
+#column_right table thead th
+{
+    height: 30px;
+    background-color: #0089A3;
+}
+
+#column_right table tbody tr
+{
+    background-color: lightgrey;
+}
+
+#column_right table tbody tr.odd
+{
+    background-color: #FFFFFF;
+}
+
+#column_right table tbody tr:hover
+{
+    background-color: #0089A3;
+}
+
+#column_right table td
+{
+    height: 30px;
+    text-align: center;
+}
