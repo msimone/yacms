@@ -1,3 +1,7 @@
+<?php
+pr($this->params);
+?>
+
 <div id='column_left'>
 </div>
 
