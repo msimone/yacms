@@ -5,23 +5,19 @@ class GalleriesController extends AppController
     var $name = 'Galleries';
     var $uses = array();
 	
-	function beforeFilter()
-	{
-	}
-	
-    function index()
+    function backend_index()
     {
     }
     
-    function add()
+    function backend_add()
     {
     }
     
-    function edit($id = null)
+    function backend_edit($id = null)
     {
     }
 	
-    function remove($id = null)
+    function backend_remove($id = null)
     {
     }
 }

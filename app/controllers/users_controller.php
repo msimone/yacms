@@ -5,45 +5,29 @@ class UsersController extends AppController
     var $name = 'Users';
     var $uses = array('User');
     
-    function beforeFilter()
-    {        
-        if (isset($this->params['backend']))
-        {
-            $this->Auth->loginAction = array('controller' => 'cms/users', 'action' => 'login');
-        }
-        else
-        {
-            
-        }
-    }
-    
-    function index()
+    function backend_index()
     {
     }
     
-    function add()
+    function backend_add()
     {
     }
     
-    function edit($id = null)
+    function backend_edit($id = null)
     {
     }
     
-    function remove($id = null)
+    function backend_remove($id = null)
     {
     }
     
-    function login()
+    function backend_login()
     {
     }
     
-    function logout()
+    function backend_logout()
     {
         $this->redirect($this->Auth->logout());
-    }
-    
-    function register()
-    {
     }
 }
 

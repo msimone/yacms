@@ -64,7 +64,7 @@
  * 'admin' 		-> admin_index() and /admin/controller/index
  * 'superuser' -> superuser_index() and /superuser/controller/index
  */
-	Configure::write('Routing.admin', 'cms');
+	Configure::write('Routing.admin', 'backend');
 
 /**
  * Turn off all caching application-wide.
