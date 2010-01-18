@@ -19,10 +19,10 @@
   </head>
   <body xml:lang="en">
     
-    <?php /*if ($session->check('Auth.User.id')) { */?>
-        <?=$this->element('backend/menu')?>
-    <?php /*}*/ ?>
-    
+    <?php if ($session->check('Auth.User')) { ?>
+      <?=$this->element('backend/menu');?>
+    <?php } ?>
+  
     <div id="content">
       <?=$content_for_layout?>
       <div style="clear: both;"></div>

@@ -8,19 +8,23 @@ class AppController extends Controller
     {
         $this->Auth->allow('display');
         
-        $admin_routing = Configure::read('Routing.admin', 'backend');
+        $prefix = Configure::read('Routing.admin');
         
-        if (!isset($this->params['backend']))
+        if (!isset($this->params[$prefix]))
         {
-            $this->Auth->loginAction    = array($admin_routing => false, 'controller' => 'users', 'action' => 'login');
-            $this->Auth->loginRedirect  = array($admin_routing => false, 'controller' => 'pages', 'action' => 'display');
-            $this->Auth->logoutRedirect = array($admin_routing => false, 'controller' => 'users', 'action' => 'login');
+            $this->layout = 'frontend';
+            
+            $this->Auth->loginAction    = array($prefix => false, 'controller' => 'users', 'action' => 'login');
+            $this->Auth->loginRedirect  = array($prefix => false, 'controller' => 'pages', 'action' => 'display');
+            $this->Auth->logoutRedirect = array($prefix => false, 'controller' => 'users', 'action' => 'login');
         }
         else
         {
-            $this->Auth->loginAction    = array($admin_routing => true, 'controller' => 'users', 'action' => 'login');
-            $this->Auth->loginRedirect  = array($admin_routing => true, 'controller' => 'cms',   'action' => 'index');
-            $this->Auth->logoutRedirect = array($admin_routing => true, 'controller' => 'users', 'action' => 'login');
+            $this->layout = 'backend';
+            
+            $this->Auth->loginAction    = array($prefix => true, 'controller' => 'users',   'action' => 'login');
+            $this->Auth->loginRedirect  = array($prefix => true, 'controller' => 'backend', 'action' => 'index');
+            $this->Auth->logoutRedirect = array($prefix => true, 'controller' => 'users',   'action' => 'login');
         }
     }
 }
