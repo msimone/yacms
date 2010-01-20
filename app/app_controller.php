@@ -2,8 +2,9 @@
 
 class AppController extends Controller
 {
+    var $uses       = array('Module');
     var $components = array('Auth');
-    
+
     function beforeFilter()
     {
         $this->Auth->allow('display');
@@ -22,9 +23,11 @@ class AppController extends Controller
         {
             $this->layout = 'backend';
             
-            $this->Auth->loginAction    = array($prefix => true, 'controller' => 'users',   'action' => 'login');
-            $this->Auth->loginRedirect  = array($prefix => true, 'controller' => 'backend', 'action' => 'index');
-            $this->Auth->logoutRedirect = array($prefix => true, 'controller' => 'users',   'action' => 'login');
+            $this->set('modules', $this->Module->find('all', array('conditions' => array('Module.active' => 1))));
+            
+            $this->Auth->loginAction    = array($prefix => true, 'controller' => 'users', 'action' => 'login');
+            $this->Auth->loginRedirect  = array($prefix => true, 'controller' => 'home',  'action' => 'index');
+            $this->Auth->logoutRedirect = array($prefix => true, 'controller' => 'users', 'action' => 'login');
         }
     }
 }

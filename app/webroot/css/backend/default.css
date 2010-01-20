@@ -84,6 +84,7 @@ body
     margin-left: 15px;
     
     color: #FFFFFF;
+    cursor: default;
     font-weight: bold;
     text-align: center;
 }
@@ -152,40 +153,81 @@ body
     margin-bottom: 25px;
 }
 
-#column_right div.disabled
-{
-    display: none;
-}
-
-#column_right table
+#model-display
 {
     width: 100%;
-    margin-top: 10px;
+    cursor: default;
+    margin-top: 25px;
+    text-align: center;
 }
 
-#column_right table thead th
+#model-display th a
 {
-    height: 30px;
-    background-color: #0089A3;
+    color: #FFFFFF;
 }
 
-#column_right table tbody tr
+#model-display th
+{
+    height: 32px;
+    color: #FFFFFF;
+    background-color: #292929;
+}
+
+#model-display tbody tr
+{
+    height: 32px;
+}
+
+#model-display tbody tr.odd
 {
     background-color: lightgrey;
 }
 
-#column_right table tbody tr.odd
+#model-display tbody tr:hover
 {
-    background-color: #FFFFFF;
+    background-color: #424242
 }
 
-#column_right table tbody tr:hover
+.button-32px
 {
-    background-color: #0089A3;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-#column_right table td
+.button-32px.disabled
 {
-    height: 30px;
-    text-align: center;
+    display: none;
+}
+
+.button-32px-edit
+{
+    background-image: url(/img/backend/edit.png);
+}
+
+.button-32px-remove
+{
+    background-image: url(/img/backend/remove.png);
+}
+
+.button-32px-previous
+{
+    background-image: url(/img/backend/previous.png);
+}
+
+.button-32px-next
+{
+    background-image: url(/img/backend/next.png);
+}
+
+.button-32px-active
+{
+    background-image: url(/img/backend/active.png);
+}
+
+.button-32px-inactive
+{
+    background-image: url(/img/backend/inactive.png);
 }

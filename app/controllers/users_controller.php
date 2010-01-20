@@ -17,6 +17,8 @@ class UsersController extends AppController
     
     function backend_edit($id = null)
     {
+        // FIX ME: what if $id is NULL ?
+        
         if (!empty($this->data))
         {
             $this->User->id = $id;
@@ -51,6 +53,23 @@ class UsersController extends AppController
         }
         
         $this->redirect(array('controller' => 'users', 'action' => 'index'));
+    }
+    
+    function backend_toggle($id = null)
+    {
+        $this->autoRender = 0;
+        
+        if ($id)
+        {
+            $this->User->id = $id;
+            $this->data = $this->User->read();
+            
+            if (!empty($this->data))
+            {
+                $this->data['User']['active'] = !$this->data['User']['active'];
+                $this->User->save($this->data);
+            }
+        }
     }
     
     function backend_login()

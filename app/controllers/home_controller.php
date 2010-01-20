@@ -1,8 +1,8 @@
 <?php
 
-class BackendController extends AppController
+class HomeController extends AppController
 {
-    var $name = 'Backend';
+    var $name = 'Home';
     var $uses = array();
     
     function backend_index()
