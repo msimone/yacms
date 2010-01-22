@@ -17,19 +17,20 @@ class UsersController extends AppController
     
     function backend_edit($id = null)
     {
-        // FIX ME: what if $id is NULL ?
-        
         if (!empty($this->data))
         {
-            $this->User->id = $id;
+            if ($id)
+            {
+                $this->User->id = $id;
             
-            if ($this->User->save($this->data))
-            {
-                $this->Session->setFlash(__('User edited successfully.', 1));
-            }
-            else
-            {
-                $this->Session->setFlash(__('Unable to edit user..', 1));
+                if ($this->User->save($this->data))
+                {
+                    $this->Session->setFlash(__('User edited successfully.', 1));
+                }
+                else
+                {
+                    $this->Session->setFlash(__('Unable to edit user..', 1));
+                }
             }
             
             $this->redirect(array('controller' => 'users', 'action' => 'index'));
@@ -61,8 +62,7 @@ class UsersController extends AppController
         
         if ($id)
         {
-            $this->User->id = $id;
-            $this->data = $this->User->read();
+            $this->data = $this->User->findById($id);
             
             if (!empty($this->data))
             {

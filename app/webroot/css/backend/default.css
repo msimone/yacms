@@ -1,3 +1,13 @@
+.float-left
+{
+    float: left;
+}
+
+.float-right
+{
+    float: right;
+}
+
 body
 {
     background-color: #0089A3;
@@ -20,7 +30,6 @@ body
 
 .menu-button
 {
-    float: left;
     width: 50px;
     height: 55px;
     margin-top: 10px;
@@ -57,23 +66,23 @@ body
 #menu-button-close,
 #menu-button-close-selected
 {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    
-    top: 5px;
-    right: 15px;
+    width: 50px;
+    height: 50px;
     z-index: 100;
+    
+    top: 10px;
+    right: 25px;
     position: absolute;
     
+    cursor: pointer;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(/img/backend/menu-button-off.png);
+    background-image: url(/img/backend/icon-24-up.png);
 }
 
 #menu-button-close-selected
 {
-    background-image: url(/img/backend/menu-button-on.png);
+    background-image: url(/img/backend/icon-24-down.png);
 }
 
 #clock
@@ -132,22 +141,21 @@ body
     float: left;
     
     width: 200px;
-    height: 750px;
+    height: 650px;
+    text-align: center;
     
     margin-top: 25px;
     margin-left: 25px;
     margin-bottom: 25px;
     
-    background-color: grey;
+    border-right: 2px groove #292929;
 }
 
 #column_right
 {
     float: left;
-    
     width: 500px;
-    height: 750px;
-    
+    height: 650px;
     margin-top: 25px;
     margin-left: 25px;
     margin-bottom: 25px;
@@ -185,6 +193,7 @@ body
 
 #model-display tbody tr:hover
 {
+    color: #FFFFFF;
     background-color: #424242
 }
 
@@ -204,30 +213,82 @@ body
 
 .button-32px-edit
 {
-    background-image: url(/img/backend/edit.png);
+    background-image: url(/img/backend/icon-24-edit.png);
 }
 
 .button-32px-remove
 {
-    background-image: url(/img/backend/remove.png);
+    background-image: url(/img/backend/icon-24-remove.png);
 }
 
 .button-32px-previous
 {
-    background-image: url(/img/backend/previous.png);
+    background-image: url(/img/backend/icon-24-previous.png);
 }
 
 .button-32px-next
 {
-    background-image: url(/img/backend/next.png);
+    background-image: url(/img/backend/icon-24-next.png);
 }
 
 .button-32px-active
 {
-    background-image: url(/img/backend/active.png);
+    background-image: url(/img/backend/icon-16-active.png);
 }
 
 .button-32px-inactive
 {
-    background-image: url(/img/backend/inactive.png);
+    background-image: url(/img/backend/icon-16-inactive.png);
 }
+
+#users-edit-form
+{
+    text-align: left;
+    width: 365px;
+}
+
+#users-edit-form .input
+{
+    height: 20px;
+    margin-top: 15px;
+}
+
+#users-edit-form .text label,
+#users-edit-form .password label
+{
+    float: left;
+}
+
+#users-edit-form .text input,
+#users-edit-form .password input
+{
+    float: right;
+    width: 200px;
+    height: 20px;
+    font-size: 15px;
+    border: 2px outset #000000;
+}
+
+#users-edit-form .checkbox input
+{
+    float: right;
+    height: 25px;
+    outline: none;
+    margin-right: 187px;
+}
+
+#users-edit-form .submit
+{
+    width: 365px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+

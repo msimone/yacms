@@ -1,4 +1,5 @@
 <div id="column_left">
+    <h1><?=__('Users', 1)?></h1>
 </div>
 <div id="column_right">
     
