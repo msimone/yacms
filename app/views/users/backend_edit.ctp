@@ -4,7 +4,7 @@
 <div id='column_right'>
     <?php
         $session->flash();
-        echo $form->create('User',            array('id' => 'users-form', 'url' => $html->url()));
+        echo $form->create('User',            array('id' => 'users-form', 'class' => 'form', 'url' => $html->url()));
         echo $form->input('username',         array('label' => __('Usermame:', 1)));
         echo $form->input('password',         array('label' => __('Password:', 1)));
         echo $form->input('password_confirm', array('type' => 'password', 'label' => __('Confirm password:', 1)));
