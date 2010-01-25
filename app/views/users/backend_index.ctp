@@ -24,15 +24,14 @@
                     <td>
                         <?php
                             echo $user['User']['active'] ?
-                            $html->link(null, array('controller'=>'users', 'action' => 'toggle', $user['User']['id']), array('class' => 'button-32px button-32px-active'), null) :
-                            $html->link(null, array('controller'=>'users', 'action' => 'toggle', $user['User']['id']), array('class' => 'button-32px button-32px-inactive'), null);
+                            $html->link('', array('controller'=>'users', 'action' => 'toggle', $user['User']['id']), array('class' => 'button-16px button-16px-active'), null) :
+                            $html->link('', array('controller'=>'users', 'action' => 'toggle', $user['User']['id']), array('class' => 'button-16px button-16px-inactive'), null);
                         ?>
                     </td>
                     <td>
-                        <?php
-                            echo $html->link(null, array('controller' => 'users', 'action' => 'edit', $user['User']['id']), array('class' => 'button-32px button-32px-edit'), null);
-                            echo $html->link(null, array('controller' => 'users', 'action' => 'remove', $user['User']['id']), array('class' => 'button-32px button-32px-remove'), __('Are you sure you want to remove this user?', 1));
-                        ?>
+                        <?=$html->link('', array('controller' => 'users', 'action' => 'edit', $user['User']['id']), array('class' => 'button-24px button-24px-edit'), null)?>
+                        &nbsp;
+                        <?=$html->link('', array('controller' => 'users', 'action' => 'remove', $user['User']['id']), array('class' => 'button-24px button-24px-remove'), __('Are you sure you want to remove this user?', 1))?>
                     </td>
                 </tr>
             <?php } ?>
@@ -40,8 +39,8 @@
         <tfoot>
             <tr>
                 <td colspan="5">
-                    <?=$paginator->prev('', array('class' => 'button-32px button-32px-previous'), null, array('class' => 'button-32px button-32px-previous disabled'))?>
-                    <?=$paginator->next('', array('class' => 'button-32px button-32px-next'),     null, array('class' => 'button-32px button-32px-next disabled'))?>
+                    <?=$paginator->prev('', array('class' => 'button-24px button-24px-previous'), null, array('class' => 'button-32px button-24px-previous disabled'))?>
+                    <?=$paginator->next('', array('class' => 'button-24px button-24px-next'),     null, array('class' => 'button-32px button-24px-next disabled'))?>
                 </td>
             </tr>
         </tfoot>
@@ -49,18 +48,14 @@
 </div>
 
 <script>
-
-function toggle(e)
-{
-    jQuery.post($(e).attr('href'));
-    $(e).toggleClass('button-32px-active').toggleClass('button-32px-inactive');
-    
-    return false;
-}
-
 $(function()
 {
-    $('.button-32px-active').click(function() { return toggle(this); });
-    $('.button-32px-inactive').click(function() { return toggle(this); });
+    $('.button-16px-active, .button-16px-inactive').click(function()
+    {
+        jQuery.post($(this).attr('href'));
+        $(this).toggleClass('button-16px-active').toggleClass('button-16px-inactive');
+        
+        return false;
+    });
 });
 </script>

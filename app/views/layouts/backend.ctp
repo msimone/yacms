@@ -9,6 +9,7 @@
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
     
     <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/backend/forms.css" />
     <link rel="stylesheet" type="text/css" href="/css/backend/default.css" />
     
     <link rel="shortcut icon" href="/img/backend/favicon.png" />
@@ -17,11 +18,6 @@
     <script src="/js/jquery-1.4.min.js" type="text/javascript"></script>
     <script src="/js/ifx.js" type="text/javascript"></script>
     
-    <?php
-        //echo $javascript->link('jquery-1.4.min.js');
-        //echo $javascript->link('ifx.js');
-    ?>
-  
   </head>
   <body xml:lang="en">
     

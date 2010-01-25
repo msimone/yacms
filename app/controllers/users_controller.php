@@ -15,10 +15,15 @@ class UsersController extends AppController
     {
         if (!empty($this->data))
         {
+            if (!empty($this->data['User']['passwd']))
+            {
+                $this->data['User']['password'] = $this->Auth->password($this->data['User']['passwd']);
+            }
+            
             if ($this->User->save($this->data))
             {
                 $this->Session->setFlash(__('User added successfully.', 1));
-                $this->redirect(array('controller' => 'users', 'action' => 'index'));
+                $this->redirect(array('action' => 'index'));
             }
         }
     }
@@ -30,11 +35,16 @@ class UsersController extends AppController
             if ($id)
             {
                 $this->User->id = $id;
-            
+                
+                if (!empty($this->data['User']['passwd']))
+                {
+                    $this->data['User']['password'] = $this->Auth->password($this->data['User']['passwd']);
+                }
+                
                 if ($this->User->save($this->data))
                 {
                     $this->Session->setFlash(__('User edited successfully.', 1));
-                    $this->redirect(array('controller' => 'users', 'action' => 'index'));
+                    $this->redirect(array('action' => 'index'));
                 }
             }
         }
@@ -52,7 +62,7 @@ class UsersController extends AppController
             }
         }
         
-        $this->redirect(array('controller' => 'users', 'action' => 'index'));
+        $this->redirect(array('action' => 'index'));
     }
     
     function backend_toggle($id = null)
