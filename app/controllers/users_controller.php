@@ -13,6 +13,14 @@ class UsersController extends AppController
     
     function backend_add()
     {
+        if (!empty($this->data))
+        {
+            if ($this->User->save($this->data))
+            {
+                $this->Session->setFlash(__('User added successfully.', 1));
+                $this->redirect(array('controller' => 'users', 'action' => 'index'));
+            }
+        }
     }
     
     function backend_edit($id = null)
@@ -26,14 +34,9 @@ class UsersController extends AppController
                 if ($this->User->save($this->data))
                 {
                     $this->Session->setFlash(__('User edited successfully.', 1));
-                }
-                else
-                {
-                    $this->Session->setFlash(__('Unable to edit user..', 1));
+                    $this->redirect(array('controller' => 'users', 'action' => 'index'));
                 }
             }
-            
-            $this->redirect(array('controller' => 'users', 'action' => 'index'));
         }
         
         $this->data = $this->User->findById($id);

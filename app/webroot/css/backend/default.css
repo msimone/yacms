@@ -241,26 +241,89 @@ body
     background-image: url(/img/backend/icon-16-inactive.png);
 }
 
-#users-edit-form
+#users-login-form
+{
+    width: 365px;
+    height: 160px;
+    margin: 100px auto 100px auto;
+}
+
+#users-login-form .input
+{
+    height: 22px;
+    margin-top: 15px;
+}
+
+
+#users-login-form .text label,
+#users-login-form .password label
+{
+    float: left;
+    height: 22px;
+    font-size: 17px;
+    display: block;
+}
+
+#users-login-form .text input,
+#users-login-form .password input
+{
+    float: right;
+    width: 250px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px outset #000000;
+}
+
+#users-login-form .submit
+{
+    margin-top: 25px;
+    text-align: right;
+}
+
+#users-login-form .submit input
+{
+    height: 28px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+}
+
+#users-login-form .submit input:hover
+{
+    border-bottom: 1px solid #000000;
+}
+
+
+#users-login-form .message
+{
+    color: #FF0000;
+    font-size: 15px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+#users-form
 {
     text-align: left;
     width: 365px;
 }
 
-#users-edit-form .input
+#users-form .input
 {
     height: 20px;
     margin-top: 15px;
 }
 
-#users-edit-form .text label,
-#users-edit-form .password label
+#users-form .text label,
+#users-form .password label
 {
     float: left;
 }
 
-#users-edit-form .text input,
-#users-edit-form .password input
+#users-form .text input,
+#users-form .password input
 {
     float: right;
     width: 200px;
@@ -269,7 +332,7 @@ body
     border: 2px outset #000000;
 }
 
-#users-edit-form .checkbox input
+#users-form .checkbox input
 {
     float: right;
     height: 25px;
@@ -277,7 +340,7 @@ body
     margin-right: 187px;
 }
 
-#users-edit-form .submit
+#users-form .submit
 {
     width: 365px;
     text-align: center;
