@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" type="text/css" href="/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/backend/forms.css" />
+    <link rel="stylesheet" type="text/css" href="/css/backend/tables.css" />
     <link rel="stylesheet" type="text/css" href="/css/backend/default.css" />
     
     <link rel="shortcut icon" href="/img/backend/favicon.png" />

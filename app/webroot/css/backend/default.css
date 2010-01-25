@@ -1,9 +1,9 @@
-.float-left
+.fl
 {
     float: left;
 }
 
-.float-right
+.fr
 {
     float: right;
 }
@@ -159,42 +159,6 @@ body
     margin-top: 25px;
     margin-left: 25px;
     margin-bottom: 25px;
-}
-
-#model-display
-{
-    width: 100%;
-    cursor: default;
-    margin-top: 25px;
-    text-align: center;
-}
-
-#model-display th a
-{
-    color: #FFFFFF;
-}
-
-#model-display th
-{
-    height: 32px;
-    color: #FFFFFF;
-    background-color: #292929;
-}
-
-#model-display tbody tr
-{
-    height: 32px;
-}
-
-#model-display tbody tr.odd
-{
-    background-color: lightgrey;
-}
-
-#model-display tbody tr:hover
-{
-    color: #FFFFFF;
-    background-color: #424242
 }
 
 .button-16px
