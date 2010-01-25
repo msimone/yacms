@@ -3,7 +3,7 @@
 class PagesController extends AppController
 {
     var $name = 'Pages';
-    var $uses = array('Pages');
+    var $uses = array('Page');
 	
     function backend_index()
     {

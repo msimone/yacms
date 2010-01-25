@@ -312,7 +312,7 @@ body
 
 #users-form .input
 {
-    height: 20px;
+    height: 24px;
     margin-top: 15px;
 }
 
@@ -320,6 +320,8 @@ body
 #users-form .password label
 {
     float: left;
+    height: 24px;
+    line-height: 24px;
 }
 
 #users-form .text input,
@@ -335,8 +337,7 @@ body
 #users-form .checkbox input
 {
     float: right;
-    height: 25px;
-    outline: none;
+    height: 24px;
     margin-right: 187px;
 }
 
@@ -346,12 +347,22 @@ body
     text-align: center;
 }
 
+#users-form .submit
+{
+    margin-top: 25px;
+    text-align: right;
+}
 
+#users-form .submit input
+{
+    height: 28px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+}
 
-
-
-
-
-
-
-
+#users-form .submit input:hover
+{
+    border-bottom: 1px solid #000000;
+}

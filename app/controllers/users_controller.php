@@ -50,10 +50,6 @@ class UsersController extends AppController
             {
                 $this->Session->setFlash(__('User removed successfully.', 1));
             }
-            else
-            {
-                $this->Session->setFlash(__('Unable to remove user..', 1));
-            }
         }
         
         $this->redirect(array('controller' => 'users', 'action' => 'index'));
@@ -62,10 +58,11 @@ class UsersController extends AppController
     function backend_toggle($id = null)
     {
         $this->autoRender = 0;
+        Configure::write('debug', 0);
         
         if ($id)
         {
-            $this->data = $this->User->findById($id);
+            $this->data = $this->User->read('active', $id);
             
             if (!empty($this->data))
             {
