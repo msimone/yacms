@@ -80,15 +80,15 @@
         
         $('#menu-button-close').toggle(function()
                                        {
-                                          $('#menu').animate({top: '-' + $('#menu').css('height'), opacity: '0'}, 'slow');
-                                          $('#content').animate({top: '-' + $('#menu').css('height')}, 'slow');
-                                          $('#menu-button-close').attr('id', 'menu-button-close-selected');
+                                            $('#menu-button-close').toggleClass('active');
+                                            $('#menu').animate({top: '-' + $('#menu').css('height'), opacity: '0'}, 'slow');
+                                            $('#content').animate({top: '-' + $('#menu').css('height')}, 'slow');
                                        },
                                        function()
                                        {
-                                          $('#menu').animate({top: '0', opacity: '1'}, 'slow');
-                                          $('#content').animate({top: '0', opacity: '1'}, 'slow');
-                                          $('#menu-button-close-selected').attr('id', 'menu-button-close');
+                                            $('#menu-button-close').toggleClass('active');
+                                            $('#menu').animate({top: '0', opacity: '1'}, 'slow');
+                                            $('#content').animate({top: '0', opacity: '1'}, 'slow');
                                        });
     });
     // ]]>

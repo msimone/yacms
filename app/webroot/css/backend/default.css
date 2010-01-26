@@ -63,8 +63,7 @@ body
     background-color: #FFFFFF !important;
 }
 
-#menu-button-close,
-#menu-button-close-selected
+#menu-button-close
 {
     width: 50px;
     height: 50px;
@@ -80,7 +79,7 @@ body
     background-image: url(/img/backend/icon-24-up.png);
 }
 
-#menu-button-close-selected
+#menu-button-close.active
 {
     background-image: url(/img/backend/icon-24-down.png);
 }
