@@ -153,7 +153,6 @@ body
 #column_right
 {
     float: left;
-    width: 500px;
     height: 650px;
     margin-top: 25px;
     margin-left: 25px;
@@ -228,7 +227,12 @@ body
 
 #users-login-form
 {
-    width: 365px;
+    width: 250px;
     height: 160px;
     margin: 100px auto 100px auto;
+}
+
+
+#pages-form
+{
 }

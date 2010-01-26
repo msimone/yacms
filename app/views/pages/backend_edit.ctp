@@ -8,7 +8,7 @@
         echo $form->input('page_title', array('label' => __('Page Title:', 1)));
         echo $form->input('menu_title', array('label' => __('Menu Title:', 1)));
         echo $form->input('slug',       array('label' => __('Slug:', 1)));
-        echo $form->input('content',    array('label' => __('Content:', 1)));
+        echo $form->input('content',    array('label' => __('Content:', 1), 'class' => 'ckeditor'));
         
         echo $form->end('Save');
     ?>

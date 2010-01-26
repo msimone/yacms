@@ -7,18 +7,51 @@ class PagesController extends AppController
 	
     function backend_index()
     {
+	$this->set('pages', $this->Page->find('all'));
     }
     
     function backend_add()
     {
+	if (!empty($this->data))
+	{
+	    if ($this->Page->save($this->data))
+	    {
+		$this->Session->setFlash(__('Page saved successfully.', 1));
+		$this->redirect(array('action' => 'index'));
+	    }
+	}
     }
     
     function backend_edit($id = null)
     {
+	if ($id)
+        {
+            if (!empty($this->data))
+            {
+		$this->Page->id = $id;
+		
+		if ($this->Page->save($this->data))
+                {
+                    $this->Session->setFlash(__('Page saved successfully.', 1));
+		    $this->redirect(array('action' => 'index'));
+                }
+	    }
+	    
+	    $this->data = $this->Page->findById($id);
+	}	
     }
     
     function backend_remove($id = null)
     {
+	if ($id)
+	{
+	    if ($this->Page->remove($id))
+            {
+                $this->Session->setFlash(__('Page removed successfully.', 1));
+            }
+        }
+	
+	$this->redirect(array('action' => 'index'));
     }
 	
     function display($uri = 'index')

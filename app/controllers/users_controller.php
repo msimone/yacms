@@ -22,7 +22,7 @@ class UsersController extends AppController
             
             if ($this->User->save($this->data))
             {
-                $this->Session->setFlash(__('User added successfully.', 1));
+                $this->Session->setFlash(__('User saved successfully.', 1));
                 $this->redirect(array('action' => 'index'));
             }
         }
@@ -30,9 +30,9 @@ class UsersController extends AppController
     
     function backend_edit($id = null)
     {
-        if (!empty($this->data))
+        if ($id)
         {
-            if ($id)
+            if (!empty($this->data))
             {
                 $this->User->id = $id;
                 
@@ -43,13 +43,13 @@ class UsersController extends AppController
                 
                 if ($this->User->save($this->data))
                 {
-                    $this->Session->setFlash(__('User edited successfully.', 1));
+                    $this->Session->setFlash(__('User saved successfully.', 1));
                     $this->redirect(array('action' => 'index'));
                 }
             }
-        }
-        
-        $this->data = $this->User->findById($id);
+            
+            $this->data = $this->User->findById($id);
+        }        
     }
     
     function backend_remove($id = null)

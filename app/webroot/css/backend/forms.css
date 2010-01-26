@@ -1,17 +1,17 @@
-.input
+.input.text,
+.input.password,
+.input.checkbox
 {
-    height: 24px;
     margin-top: 15px;
 }
 
-.input.error
+.input.textarea
 {
-    height: 43px;
+    margin-top: 15px;
 }
 
 .input .error-message
 {
-    float: right;
     width: 250px;
     margin-top: 5px;
     color: #FF0000;
@@ -26,7 +26,6 @@
 
 .input label
 {
-    float: left;
     height: 24px;
     display: block;
     font-size: 17px;
@@ -36,13 +35,18 @@
 {
     float: right;
     height: 24px;
-    margin-right: 240px;
+}
+
+.input.textarea textarea
+{
+    height: 300px;
+    width: 500px;
+    border: 2px outset #000000;
 }
 
 .input.text input,
 .input.password input
 {
-    float: right;
     width: 250px;
     height: 20px;
     font-size: 16px;
