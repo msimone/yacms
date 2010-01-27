@@ -1,70 +1,50 @@
-.input.text,
-.input.password,
-.input.checkbox
+.form-h
 {
+    font-size: 15px;
+}
+
+.form-h > .input
+{
+    height: 24px;
     margin-top: 15px;
 }
 
-.input.textarea
-{
-    margin-top: 15px;
-}
-
-.input .error-message
-{
-    width: 250px;
-    margin-top: 5px;
-    color: #FF0000;
-    font-size: 12px;
-}
-
-.submit
+.form-h > .submit
 {
     height: 28px;
     margin-top: 15px;
 }
 
-.input label
+.form-h > .message
 {
-    height: 24px;
-    display: block;
-    font-size: 17px;
+    color: #FF0000;
+    font-size: 13px;
+    margin-top: 25px;
+    text-align: center;
 }
 
-.input.checkbox input
+.form-h > .input > label
+{
+    float: left;
+}
+
+.form-h > .input > input
 {
     float: right;
-    height: 24px;
-}
-
-.input.textarea textarea
-{
-    height: 300px;
-    width: 500px;
-    border: 2px outset #000000;
-}
-
-.input.text input,
-.input.password input
-{
-    width: 250px;
+    width: 200px;
     height: 20px;
-    font-size: 16px;
-    font-weight: bold;
     border: 2px outset #000000;
 }
 
-.submit input
+.form-h > .submit input
 {
-    height: 28px;
     float: right;
     cursor: pointer;
-    font-size: 15px;
     font-weight: bold;
     background-color: #FFFFFF;
 }
 
-.submit input:hover
+.form-h > .submit input:hover
 {
     border-bottom: 1px dotted #000000;
 }

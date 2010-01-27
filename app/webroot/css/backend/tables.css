@@ -4,14 +4,6 @@
     text-align: center;
 }
 
-.table .title,
-.table .title a
-{
-    height: 32px;
-    color: #FFFFFF;
-    background-color: #292929;
-}
-
 .table tbody tr
 {
     height: 32px;

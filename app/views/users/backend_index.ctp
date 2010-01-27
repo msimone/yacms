@@ -5,22 +5,22 @@
     
     <?php $session->flash(); ?>
     
-    <table class="table" cellpadding="0" cellspacing="0">
+    <table id="users-table" class="table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th class="title" style="-moz-border-radius: 10px 0 0 0; -webkit-border-radius: 10px 0 0 0;">
+                <th class="heading" style="-moz-border-radius: 10px 0 0 0; -webkit-border-radius: 10px 0 0 0;">
                     <?=$paginator->sort(__('First name', 1), 'first_name')?>
                 </th>
-                <th class="title">
+                <th class="heading">
                     <?=$paginator->sort(__('Last name', 1), 'last_name')?>
                 </th>
-                <th class="title">
+                <th class="heading">
                     <?=$paginator->sort(__('Username', 1), 'username')?>
                 </th>
-                <th class="title">
+                <th class="heading">
                     <?=$paginator->sort(__('Active', 1), 'active')?>
                 </th>
-                <th class="title" style="-moz-border-radius: 0 10px 0 0; -webkit-border-radius: 0 10px 0 0;">
+                <th class="heading" style="-moz-border-radius: 0 10px 0 0; -webkit-border-radius: 0 10px 0 0;">
                     <?=__('Actions', 1)?>
                 </th>
             </tr>
