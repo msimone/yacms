@@ -138,7 +138,7 @@ body
 #column_left
 {
     float: left;
-    width: 14%;
+    width: 15%;
     height: 650px;
     text-align: center;
     margin-top: 25px;
@@ -147,7 +147,7 @@ body
 
 #column_right
 {
-    width: 84%;
+    width: 85%;
     float: right;
     height: 650px;
     margin-top: 25px;
