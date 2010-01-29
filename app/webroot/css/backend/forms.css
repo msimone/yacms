@@ -1,50 +1,58 @@
-.form-h
+div.input
 {
     font-size: 15px;
-}
-
-.form-h > .input
-{
-    height: 24px;
     margin-top: 15px;
+    overflow: hidden;
 }
 
-.form-h > .submit
+div.submit
 {
     height: 28px;
     margin-top: 15px;
+    text-align: right;
 }
 
-.form-h > .message
+div.input > label
 {
-    color: #FF0000;
-    font-size: 13px;
-    margin-top: 25px;
-    text-align: center;
+    display: block;
 }
 
-.form-h > .input > label
+div.input > input
 {
-    float: left;
-}
-
-.form-h > .input > input
-{
-    float: right;
-    width: 200px;
+    width: 250px;
     height: 20px;
     border: 2px outset #000000;
 }
 
-.form-h > .submit input
+div.input > textarea
 {
-    float: right;
+    width: 400px;
+    height: 400px;
+    border: 2px outset #000000;
+}
+
+div.input > input.block,
+div.input > textarea.block,
+{
+    display: block;
+}
+
+div.submit > input
+{
     cursor: pointer;
     font-weight: bold;
     background-color: #FFFFFF;
 }
 
-.form-h > .submit input:hover
+div.submit > input:hover
 {
     border-bottom: 1px dotted #000000;
+}
+
+form > div#authMessage
+{
+    color: #FF0000;
+    font-size: 13px;
+    margin-top: 25px;
+    text-align: center;
 }

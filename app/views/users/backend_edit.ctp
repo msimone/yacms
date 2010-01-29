@@ -4,7 +4,6 @@
     <?php
         $session->flash();
         echo $form->create('User',          array('id' => 'users-form', 'url' => $html->url()));
-        echo $form->input('active',         array('label' => __('Active', 1)));
         echo $form->input('username',       array('label' => __('Usermame', 1)));
         echo $form->input('passwd',         array('label' => __('Password', 1)));
         echo $form->input('passwd_confirm', array('label' => __('Confirm password', 1), 'type'  => 'password'));
