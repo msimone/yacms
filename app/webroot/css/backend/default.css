@@ -221,11 +221,21 @@ body
     background-image: url(/img/backend/icon-24-next.png);
 }
 
-form#users-login-form
+form#users-login
 {
-    width: 305px;
+    width: 350px;
     height: 160px;
     margin: 100px auto 100px auto;
+}
+
+form#users-login > .input > label
+{
+    float: left;
+}
+
+form#users-login > .input > input
+{
+    float: right;
 }
 
 form#users-form
@@ -238,7 +248,7 @@ form#pages-form
     width: 404px;
 }
 
-#users-table
+table#users-table
 {
     width: 80%;
     margin-left: auto;

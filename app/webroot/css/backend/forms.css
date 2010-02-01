@@ -7,7 +7,6 @@ div.input
 
 div.submit
 {
-    height: 28px;
     margin-top: 15px;
     text-align: right;
 }
@@ -32,13 +31,14 @@ div.input > textarea
 }
 
 div.input > input.block,
-div.input > textarea.block,
+div.input > textarea.block
 {
     display: block;
 }
 
 div.submit > input
 {
+    height: 28px;
     cursor: pointer;
     font-weight: bold;
     background-color: #FFFFFF;
