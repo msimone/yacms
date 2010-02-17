@@ -32,7 +32,7 @@ class PagesController extends AppController
 		
 		if ($this->Page->save($this->data))
                 {
-                    $this->Session->setFlash(__('Page saved successfully.', 1));
+		    $this->Session->setFlash(__('Page saved successfully.', 1));
 		    $this->redirect(array('action' => 'index'));
                 }
 	    }
@@ -54,10 +54,9 @@ class PagesController extends AppController
 	$this->redirect(array('action' => 'index'));
     }
 	
-    function display($uri = 'index')
+    function display($slug = 'index')
     {
-		pr($this->params);
-		exit();
+	$this->set('_', $this->Page->find('first', array('conditions' => array('Page.active' => '1', 'Page.slug' => $slug))));
     }
 }
 

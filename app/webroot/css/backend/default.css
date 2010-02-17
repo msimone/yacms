@@ -16,7 +16,7 @@ body
 
 #menu
 {
-    width: 98%;
+    width: 80%;
     height:  65px;
     margin: 0 auto;
     
@@ -29,7 +29,7 @@ body
     -webkit-border-radius: 10px;
 }
 
-.menu-button
+#menu > .tab
 {
     width: 50px;
     height: 55px;
@@ -39,50 +39,26 @@ body
     -webkit-border-radius: 10px 10px 0 0;
 }
 
-.menu-button-icon
+.menu-tab.active
+{
+    background-color: #FFFFFF;
+}
+
+.menu-button
 {
     width: 50px;
     height: 50px;
     display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    
-    background-color: #212121;
-    
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 
-.menu-button-icon-hover
+.menu-button:hover
 {
-    background-color: #424242
-}
-
-.menu-button-active,
-.menu-button-icon-active
-{
-    background-color: #FFFFFF !important;
-}
-
-#menu-button-close
-{
-    width: 50px;
-    height: 50px;
-    z-index: 100;
-    
-    top: 10px;
-    right: 25px;
-    position: absolute;
-    
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(/img/backend/icon-24-up.png);
-}
-
-#menu-button-close.active
-{
-    background-image: url(/img/backend/icon-24-down.png);
+    background-color: #424242;
 }
 
 #clock
@@ -121,7 +97,7 @@ body
 
 #content
 {
-    width: 98%;
+    width: 80%;
     height: auto;
     margin: 0 auto;
     
@@ -144,6 +120,17 @@ body
     margin-top: 25px;
     margin-bottom: 25px;
     text-align: center;
+}
+
+#column_left > a
+{
+    color: #000000;
+    font-weight: bold;
+}
+
+#column_left > a:hover
+{
+    border-bottom: 1px dotted #000000;
 }
 
 #column_right
@@ -249,6 +236,18 @@ form#pages-form
 }
 
 table#users-table
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form#news-form
+{
+    width: 404px;
+}
+
+table#news-table
 {
     width: 80%;
     margin-left: auto;

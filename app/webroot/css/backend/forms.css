@@ -38,7 +38,6 @@ div.input > textarea.block
 
 div.submit > input
 {
-    height: 28px;
     cursor: pointer;
     font-weight: bold;
     background-color: #FFFFFF;

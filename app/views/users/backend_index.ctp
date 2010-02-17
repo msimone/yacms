@@ -1,5 +1,5 @@
 <div id="column_left">
-    <h1><?=__('Users', 1)?></h1>
+    <h1><?=__($this->name, 1)?></h1>
 </div>
 <div id="column_right">
     
@@ -26,23 +26,23 @@
             </tr>
         </thead>
         <tbody>
-            <?php $i = 1; foreach($users as $user) { ?>
-                <tr <?=($i++ % 2) ? 'class="odd"' : ''?>>
+            <?php $odd = 0; foreach($users as $i) { ?>
+                <tr <?=($odd++ % 2) ? 'class="odd"' : ''?>>
                     <td>
-                        <?=$user['User']['first_name']?>
+                        <?=$i['User']['first_name']?>
                     </td>
                     <td>
-                        <?=$user['User']['last_name']?>
+                        <?=$i['User']['last_name']?>
                     </td>
                     <td>
-                        <?=$user['User']['username']?>
+                        <?=$i['User']['username']?>
                     </td>
                     <td>
-                        <?=$html->link('', array('controller'=>'users', 'action' => 'toggle', $user['User']['id']), array('class' => 'button-16px button-16px-' . ($user['User']['active'] ? 'active' : 'inactive')), null)?></td>
+                        <?=$html->link('', array('action' => 'toggle', $i['User']['id']), array('class' => 'button-16px button-16px-' . ($i['User']['active'] ? 'active' : 'inactive')), null)?></td>
                     <td>
-                        <?=$html->link('', array('controller' => 'users', 'action' => 'edit', $user['User']['id']), array('class' => 'button-24px button-24px-edit'), null)?>
+                        <?=$html->link('', array('action' => 'edit',   $i['User']['id']), array('class' => 'button-24px button-24px-edit'), null)?>
                         &nbsp;
-                        <?=$html->link('', array('controller' => 'users', 'action' => 'remove', $user['User']['id']), array('class' => 'button-24px button-24px-remove'), __('Are you sure you want to remove this user?', 1))?>
+                        <?=$html->link('', array('action' => 'remove', $i['User']['id']), array('class' => 'button-24px button-24px-remove'), __('Are you sure you want to remove this user?', 1))?>
                     </td>
                 </tr>
             <?php } ?>

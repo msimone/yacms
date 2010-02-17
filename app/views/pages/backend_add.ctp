@@ -13,3 +13,15 @@
         echo $form->end('Save');
     ?>
 </div>
+
+<script type="text/javascript">
+$(function()
+{
+    $('#PageContent').tinymce(
+    {
+        theme: 'advanced',
+        script_url : '/js/tinymce/tiny_mce.js',
+        theme_advanced_toolbar_location : "top",
+    });
+});
+</script>
