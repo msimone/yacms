@@ -229,4 +229,6 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+        
+        Configure::write('Backend.resource_dir', 'res');
 ?>

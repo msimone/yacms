@@ -1,8 +1,8 @@
 <?php $session->flash(); ?>
 
-<?=$form->create('News', array('class' => 'model-form', 'url' => $html->url()))?>
+<?=$form->create('News', array('class' => 'model-add', 'url' => $html->url()))?>
 
-<?=$form->input('news_title', array('label' => __('Title', 1)))?>
+<?=$form->input('title', array('label' => __('Title', 1)))?>
 
 <div id="tabs">
     <ul>

@@ -49,7 +49,9 @@ class UsersController extends AppController
             }
             
             $this->data = $this->User->findById($id);
-        }        
+        }
+        
+        $this->render('backend_add');
     }
     
     function backend_remove($id = null)

@@ -39,7 +39,9 @@ class NewsController extends AppController
 	    }
 	    
 	    $this->data = $this->News->findById($id);
-	}	
+	}
+	
+	$this->render('backend_add');
     }
     
     function backend_remove($id = null)

@@ -1,27 +1,38 @@
-<div id='column_left'>
+<?php $session->flash(); ?>
+
+<?=$form->create('Page', array('class' => 'model-add', 'url' => $html->url()))?>
+
+<?=$form->input('title', array('label' => __('Page Title:', 1)))?>
+
+<?=$form->input('slug',       array('label' => __('Slug:', 1)))?>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tab-1">Content 1</a></li>
+        <li><a href="#tab-2">Content 2</a></li>
+        <li><a href="#tab-3">Content 3</a></li>
+    </ul>
+    <div id="tab-1">
+        <?=$form->input('content1', array('class' => 'wymeditor', 'label' => false))?>
+    </div>
+    <div id="tab-2">
+        <?=$form->input('content2', array('class' => 'wymeditor', 'label' => false))?>
+    </div>
+    <div id="tab-3">
+        <?=$form->input('content3', array('class' => 'wymeditor', 'label' => false))?>
+    </div>
 </div>
-<div id='column_right'>
-    <?php
-        $session->flash();
-        echo $form->create('Page', array('id' => 'pages-form', 'url' => $html->url()));
-        
-        echo $form->input('page_title', array('label' => __('Page Title:', 1)));
-        echo $form->input('menu_title', array('label' => __('Menu Title:', 1)));
-        echo $form->input('slug',       array('label' => __('Slug:', 1)));
-        echo $form->input('content',    array('label' => __('Content:', 1)));
-        
-        echo $form->end('Save');
-    ?>
-</div>
+
+<?=$form->end('Save')?>
 
 <script type="text/javascript">
 $(function()
 {
-    $('#PageContent').tinymce(
-    {
-        theme: 'advanced',
-        script_url : '/js/tinymce/tiny_mce.js',
-        theme_advanced_toolbar_location : "top",
+    $('.wymeditor').wymeditor
+    ({
+        skin: "compact"
     });
+    
+    $('#tabs').tabs();
 });
 </script>

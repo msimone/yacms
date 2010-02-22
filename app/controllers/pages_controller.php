@@ -16,7 +16,7 @@ class PagesController extends AppController
 	{
 	    if ($this->Page->save($this->data))
 	    {
-		$this->Session->setFlash(__('Page saved successfully.', 1));
+		$this->Session->setFlash(__('Page saved successfully.', 1), 'flash_success');
 		$this->redirect(array('action' => 'index'));
 	    }
 	}
@@ -32,13 +32,15 @@ class PagesController extends AppController
 		
 		if ($this->Page->save($this->data))
                 {
-		    $this->Session->setFlash(__('Page saved successfully.', 1));
+		    $this->Session->setFlash(__('Page saved successfully.', 1), 'flash_success');
 		    $this->redirect(array('action' => 'index'));
                 }
 	    }
 	    
 	    $this->data = $this->Page->findById($id);
-	}	
+	}
+	
+	$this->render('backend_add');
     }
     
     function backend_remove($id = null)
@@ -47,7 +49,7 @@ class PagesController extends AppController
 	{
 	    if ($this->Page->remove($id))
             {
-                $this->Session->setFlash(__('Page removed successfully.', 1));
+                $this->Session->setFlash(__('Page removed successfully.', 1), 'flash_success');
             }
         }
 	

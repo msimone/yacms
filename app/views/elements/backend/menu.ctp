@@ -12,10 +12,13 @@
         <?=$html->link('', array('controller' => 'pages', 'action' => 'index'), array('title' => __('Pages', 1), 'class' => 'menu-button selectable pages', 'style' => 'background-image: url(/img/backend/menu-button-pages.png)'))?>
     </div>
     <div class="tab">
+        <?=$html->link('', array('controller' => 'news', 'action' => 'index'), array('title' => __('News', 1), 'class' => 'menu-button selectable news', 'style' => 'background-image: url(/img/backend/news.png)'))?>
+    </div>
+    <div class="tab">
         <?=$html->link('', array('controller' => 'galleries', 'action' => 'index'), array('title' => __('Galleries', 1), 'class' => 'menu-button  selectable galleries', 'style' => 'background-image: url(/img/backend/menu-button-galleries.png)'))?>
     </div>
     <div class="tab">
-        <?=$html->link('', array('controller' => 'news', 'action' => 'index'), array('title' => __('News', 1), 'class' => 'menu-button selectable news', 'style' => 'background-image: url(/img/backend/news.png)'))?>
+        <?=$html->link('', array('controller' => 'resources', 'action' => 'index'), array('title' => __('Resource', 1), 'class' => 'menu-button selectable resources', 'style' => 'background-image: url(/img/backend/resources.png)'))?>
     </div>
     <div class="tab">
         <?=$html->link('', array('controller' => 'users', 'action' => 'index'), array('title' => __('Users', 1), 'class' => 'menu-button selectable users', 'style' => 'background-image: url(/img/backend/menu-button-users.png)'))?>

@@ -20,17 +20,17 @@
     <script type="text/javascript" src="/js/jquery-1.4.min.js">
     </script>
     
-    <script type="text/javascript" src="/js/jquery-ui-1.7.2.custom.min.js">
-    </script>
+    <script type="text/javascript" src="/js/ifx/iutil.js"></script>
+    <script type="text/javascript" src="/js/ifx/idrag.js"></script>
+    <script type="text/javascript" src="/js/ifx/idrop.js"></script>
+    <script type="text/javascript" src="/js/ifx/isortables.js"></script>
+    <script type="text/javascript" src="/js/nestedsortable-1.0.1.min.js"></script>
     
-    <script type="text/javascript" src="/js/wymeditor/jquery.wymeditor.min.js">
-    </script>
+    <script type="text/javascript" src="/js/jquery-ui-1.7.2.custom.min.js"></script>
     
-    <script type="text/javascript" src="/js/tinymce/jquery.tinymce.js">
-    </script>
+    <script type="text/javascript" src="/js/wymeditor/jquery.wymeditor.min.js"></script>
     
-    <script type="text/javascript" src="/js/clock.js">
-    </script>
+    <script type="text/javascript" src="/js/clock.js"></script>
   </head>
   <body>
     <?php if ($session->check('Auth.User')) { ?>

@@ -1,54 +1,71 @@
-.model-form .input
+.model-add-small .input
 {
-    font-size: 15px;
     margin-top: 15px;
     overflow: hidden;
 }
 
-.model-form .submit
+.model-add-small .submit
 {
     height: 28px;
     margin-top: 15px;
     text-align: left;
 }
 
-.model-form .input label
+.model-add-small .input label
 {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.model-form .input input
+.model-add-small .input.checkbox label
 {
-    width: 945px;
-    height: 30px;
-    font-size: 200%;
-    padding: 3px 0 3px 0;
+    float: left;
+}
+
+.model-add-small .input.text input
+{
+    width: 250px;
+    height: 18px;
+    font-size: 100%;
+    padding: 0px 3px 0px 3px;
     border: 1px solid #424242;
-    
     background-color: #F0F0F0;
 }
 
-.model-form .input textarea
+.model-add-small .input.file input
+{
+    width: 250px;
+    font-size: 100%;
+    padding: 0px 3px 0px 3px;
+    border: 1px solid #424242;
+    background-color: #F0F0F0;
+}
+
+.model-add-small .input.textarea textarea
 {
     width: 945px;
     height: 600px;
 }
 
-.model-form .submit input
+.model-add-small .input.checkbox input
+{
+    width: 413px;
+}
+
+.model-add-small .submit input
 {
     cursor: pointer;
     font-weight: bold;
     background-color: #FFFFFF;
 }
 
-.model-form .submit input:hover
+.model-add-small .submit input:hover
 {
     border-bottom: 1px dotted #000000;
 }
 
-.model-form #authMessage
+.model-add-small #authMessage
 {
     color: #FF0000;
     font-size: 13px;
@@ -64,6 +81,64 @@
 
 
 
+
+
+.model-add .input
+{
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.model-add .submit
+{
+    height: 28px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.model-add .input label
+{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.model-add .input input
+{
+    width: 945px;
+    height: 30px;
+    font-size: 25px;
+    padding: 0px 3px 0px 3px;
+    border: 1px solid #424242;
+    background-color: #F0F0F0;
+}
+
+.model-add .input textarea
+{
+    width: 945px;
+    height: 600px;
+}
+
+.model-add .submit input
+{
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #FFFFFF;
+}
+
+.model-add .submit input:hover
+{
+    border-bottom: 1px dotted #000000;
+}
+
+.model-add #authMessage
+{
+    color: #FF0000;
+    font-size: 13px;
+    margin-top: 25px;
+    text-align: center;
+}
+
 .login-form
 {
     width: 355px;
@@ -72,7 +147,6 @@
 
 .login-form .input
 {
-    font-size: 15px;
     margin-top: 15px;
     overflow: hidden;
 }
@@ -99,7 +173,7 @@
     width: 250px;
     height: 18px;
     font-size: 100%;
-    padding: 3px 0 3px 0;   
+    padding: 0px 3px 0px 3px;
     border: 1px solid #424242;
     
     background-color: #F0F0F0;
@@ -125,13 +199,57 @@
     text-align: center;
 }
 
+.upload-form .input
+{
+    margin-top: 15px;
+    overflow: hidden;
+}
 
+.upload-form .submit
+{
+    margin-top: 15px;
+}
 
+.upload-form .input.file input
+{
+    font-size: 100%;
+    padding: 0px 3px 0px 3px;
+    border: 1px solid #424242;
+    background-color: #F0F0F0;
+}
 
+.upload-form .submit input
+{
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    text-align: left;
+    font-weight: bold;
+    line-height: 24px;
+    padding: 0 8px 0 25px;
+    border: 1px solid #000000;
+    
+    
+    background-color: #F0F0F0;
+    
+    background-repeat: no-repeat;
+    background-position: 6px center;
+    background-image: url(/img/backend/add.png);
+}
 
+.upload-form .submit input:hover
+{
+    background-color: #D4D4C6;
+}
 
+input[type="submit"]:focus,
+input[type="button"]:focus
+{
+    outline : none; 
+}
 
-
-
-
-
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner
+{
+    border : 0px;
+}
