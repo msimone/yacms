@@ -1,6 +1,7 @@
 <div id="records">
     <?php $session->flash(); ?>
     
+    <!--
     <?php if (!empty($pages)) {?>
         <ul id="tree" class="list">
             <?php $odd = 0; foreach($pages as $i) { ?>
@@ -15,7 +16,16 @@
                 </li>
             <?php } ?>
         </ul>
-    <?php } ?>    
+    <?php } ?>
+    -->
+    
+    <?php if (!empty($pages)) {?>
+        <ul id="pages" class="tree">
+            <?php $odd = 0; foreach($pages as $i) { ?>
+                <li id="i1" class="sortable">TEST 123</li>
+            <?php } ?>
+        </ul>
+    <?php } ?>
 </div>
 <div id="actions">
 </div>
@@ -23,9 +33,10 @@
 <script type="text/javascript">
 $(function()
 {
-    $('#tree').NestedSortable(
+    $('#pages').NestedSortable(
     {
         accept: 'sortable',
+        helperclass: 'helper',
     });
 });
 </script>

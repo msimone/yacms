@@ -5,6 +5,7 @@
 
 .list li
 {
+    height: 40px;
     overflow: hidden;
     margin: 0 0 5px 0;
     background-color: #E6E5DC;
@@ -49,4 +50,63 @@
     line-height: 40px;
     text-align: center;
     padding: 0 5px 0 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.helper
+{
+    border: 2px dashed #000000;
+}
+
+.tree
+{
+    list-style-type: none;
+}
+
+.tree li
+{
+    margin: 0 0 5px 0;
+    line-height: 40px;
+    padding: 0 5px 0 5px;
+    background-color: #E6E5DC;
+}
+
+.list li.odd
+{
+    background-color: #D4D4C6;
 }
