@@ -9,7 +9,8 @@ Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 Router::connect('/register', array('controller' => 'users', 'action' => 'register'));
 
-// frontend - dynamic pages
+// frontend - dynamic news/pages
+Router::connect('/news/*', array('controller' => 'news', 'action' => 'display'));
 Router::connect('/*', array('controller' => 'pages', 'action' => 'display'));
 
 ?>

@@ -1,0 +1,49 @@
+.list
+{
+    list-style-type: none;
+}
+
+.list li
+{
+    height: 40px;
+    margin: 0 0 5px 0;
+    background-color: #E6E5DC;
+}
+
+.list .title,
+.list .actions
+{
+    height: 40px;
+    overflow: hidden;
+    line-height: 40px;
+    padding: 0 5px 0 5px;
+    display: inline-block;
+}
+
+.list .title
+{
+    float: left;
+    width: 480px;
+    font-weight: bold;
+}
+
+.list .intro
+{
+    color: #A3A093;
+    line-height: 40px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.list .actions
+{
+    float: right;
+}
+
+.list .paginator
+{
+    background: none;
+    line-height: 40px;
+    text-align: center;
+    padding: 0 5px 0 5px;
+}

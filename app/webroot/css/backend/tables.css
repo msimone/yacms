@@ -7,15 +7,14 @@
 .table tbody tr
 {
     height: 32px;
+    margin: 0 0 5px 0;
+    background-color: #E6E5DC;
 }
 
 .table tbody tr.odd
 {
-    background-color: lightgrey;
 }
 
 .table tbody tr:hover
 {
-    color: #FFFFFF;
-    background-color: #424242
 }

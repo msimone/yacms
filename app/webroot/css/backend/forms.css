@@ -1,57 +1,137 @@
-div.input
+.model-form .input
 {
     font-size: 15px;
     margin-top: 15px;
     overflow: hidden;
 }
 
-div.submit
+.model-form .submit
 {
+    height: 28px;
     margin-top: 15px;
-    text-align: right;
+    text-align: left;
 }
 
-div.input > label
+.model-form .input label
 {
     display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-div.input > input
+.model-form .input input
 {
-    width: 250px;
-    height: 20px;
-    border: 2px outset #000000;
+    width: 945px;
+    height: 30px;
+    font-size: 200%;
+    padding: 3px 0 3px 0;
+    border: 1px solid #424242;
+    
+    background-color: #F0F0F0;
 }
 
-div.input > textarea
+.model-form .input textarea
 {
-    width: 400px;
-    height: 400px;
-    border: 2px outset #000000;
+    width: 945px;
+    height: 600px;
 }
 
-div.input > input.block,
-div.input > textarea.block
-{
-    display: block;
-}
-
-div.submit > input
+.model-form .submit input
 {
     cursor: pointer;
     font-weight: bold;
     background-color: #FFFFFF;
 }
 
-div.submit > input:hover
+.model-form .submit input:hover
 {
     border-bottom: 1px dotted #000000;
 }
 
-form > div#authMessage
+.model-form #authMessage
 {
     color: #FF0000;
     font-size: 13px;
     margin-top: 25px;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+.login-form
+{
+    width: 355px;
+    margin: 0 auto;
+}
+
+.login-form .input
+{
+    font-size: 15px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.login-form .submit
+{
+    height: 28px;
+    margin-top: 15px;
+    text-align: right;
+}
+
+.login-form .input label
+{
+    float: left;
+    height: 26px;
+    display: block;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+.login-form .input input
+{
+    float: right;
+    width: 250px;
+    height: 18px;
+    font-size: 100%;
+    padding: 3px 0 3px 0;   
+    border: 1px solid #424242;
+    
+    background-color: #F0F0F0;
+}
+
+.login-form .submit input
+{
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #FFFFFF;
+}
+
+.login-form .submit input:hover
+{
+    border-bottom: 1px dotted #000000;
+}
+
+.login-form #authMessage
+{
+    color: #FF0000;
+    font-size: 13px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+

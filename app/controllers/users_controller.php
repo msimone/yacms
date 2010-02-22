@@ -7,7 +7,7 @@ class UsersController extends AppController
     
     function backend_index()
     {
-        $this->paginate = array('limit' => 15);
+        $this->paginate = array('limit' => 8);
         $this->set('users', $this->paginate('User'));
     }
     
@@ -22,7 +22,7 @@ class UsersController extends AppController
             
             if ($this->User->save($this->data))
             {
-                $this->Session->setFlash(__('User saved successfully.', 1));
+                $this->Session->setFlash(__('User saved successfully.', 1), 'flash_success');
                 $this->redirect(array('action' => 'index'));
             }
         }
@@ -43,7 +43,7 @@ class UsersController extends AppController
                 
                 if ($this->User->save($this->data))
                 {
-                    $this->Session->setFlash(__('User saved successfully.', 1));
+                    $this->Session->setFlash(__('User saved successfully.', 1), 'flash_success');
                     $this->redirect(array('action' => 'index'));
                 }
             }
@@ -58,28 +58,11 @@ class UsersController extends AppController
         {
             if ($this->User->remove($id))
             {
-                $this->Session->setFlash(__('User removed successfully.', 1));
+                $this->Session->setFlash(__('User removed successfully.', 1), 'flash_success');
             }
         }
         
         $this->redirect(array('action' => 'index'));
-    }
-    
-    function backend_toggle($id = null)
-    {
-        $this->autoRender = 0;
-        Configure::write('debug', 0);
-        
-        if ($id)
-        {
-            $this->data = $this->User->read('active', $id);
-            
-            if (!empty($this->data))
-            {
-                $this->data['User']['active'] = !$this->data['User']['active'];
-                $this->User->save($this->data);
-            }
-        }
     }
     
     function backend_login()

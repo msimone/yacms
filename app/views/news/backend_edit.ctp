@@ -1,25 +1,44 @@
-<div id='column_left'>
-</div>
-<div id='column_right'>
-    <?php
-        $session->flash();
-        echo $form->create('News', array('id' => 'news-form', 'url' => $html->url()));
-        
-        echo $form->input('news_title', array('label' => __('News Title:', 1)));
-        echo $form->input('content',    array('label' => __('Content:', 1)));
-        
-        echo $form->end('Save');
-    ?>
+<?php $session->flash(); ?>
+
+<?=$form->create('News', array('class' => 'model-form', 'url' => $html->url()))?>
+
+<?=$form->input('news_title', array('label' => __('Title', 1)))?>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tab-1">Content</a></li>
+        <!--
+        <li><a href="#tab-2">Content 2</a></li>
+        <li><a href="#tab-3">Content 3</a></li>
+        -->
+    </ul>
+    <div id="tab-1">
+        <?=$form->input('content', array('class' => 'wymeditor', 'label' => false))?>
+    </div>
+    <!--
+    <div id="tab-2">
+        <?=$form->input('content2', array('class' => 'wymeditor', 'label' => false))?>
+    </div>
+    <div id="tab-3">
+        <?=$form->input('content3', array('class' => 'wymeditor', 'label' => false))?>
+    </div>
+    -->
 </div>
 
+<?=$form->submit('Save', array('class' => 'wymupdate'))?>
+
+<?=$form->end()?>
+
 <script type="text/javascript">
+
 $(function()
 {
-    $('#NewsContent').tinymce(
-    {
-        theme: 'advanced',
-        script_url : '/js/tinymce/tiny_mce.js',
-        theme_advanced_toolbar_location : "top",
+    $('.wymeditor').wymeditor
+    ({
+        skin: "compact"
     });
+    
+    $('#tabs').tabs();
 });
+
 </script>

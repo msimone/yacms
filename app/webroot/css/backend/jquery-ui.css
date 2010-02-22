@@ -1,0 +1,44 @@
+.ui-tabs
+{
+    margin-top: 15px;
+}
+
+.ui-tabs-hide
+{
+    display: none;
+}
+
+.ui-tabs-nav
+{
+    float: left;
+    list-style-type: none;
+}
+
+.ui-tabs-nav li
+{
+    float: left;
+    margin: 0 2px 0 0;
+}
+
+.ui-tabs-nav li a
+{
+    color: #000000;
+    display: block;
+    margin: 3px 0 0 0;
+    line-height: 27px;
+    padding: 0 8px 0 8px;
+    background-color: lightgrey;
+}
+
+.ui-tabs-nav li.ui-state-active a
+{
+    margin: 0;
+    color: #FFFFFF;
+    line-height: 30px;
+    background-color: #212121;
+}
+
+.ui-tabs-panel
+{
+    clear: both;
+}

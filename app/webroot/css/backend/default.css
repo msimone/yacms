@@ -10,13 +10,21 @@
 
 body
 {
-    background-color: #0089A3;
-    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-family: Arial;
+    
+    background-color: #000000;
+    
+    /*
+    background-repeat: repeat;
+    background-position: top left;
+    background-image: url(/img/backend/page_bg.png);
+    */
 }
 
-#menu
+#header
 {
-    width: 85%;
+    width: 990px;
     height:  65px;
     margin: 0 auto;
     
@@ -24,17 +32,50 @@ body
     position: relative;
     
     background-color: #212121;
+    
     -moz-border-radius: 0 0 10px 10px;
-    -webkit-border-radius: 0 0 10px 10px;
     -webkit-border-radius: 10px;
+}
+
+#content
+{
+    width: 960px;
+    height: auto;
+    padding: 15px;
+    margin: 0 auto;
+    
+    top: 0;
+    position: relative;
+    
+    background-color: #FFFFFF;
+    
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    
+    border: 1px solid transparent;
+}
+
+#footer
+{
+    width: 960px;
+    height: 150px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+#menu
+{
+    height: 55px;
+    float: left;
+    margin: 10px 0 0 0;
 }
 
 #menu > .tab
 {
+    float: left;
     width: 50px;
     height: 55px;
-    margin-top: 10px;
-    margin-left: 25px;
+    margin: 0 0 0 25px;
     -moz-border-radius: 10px 10px 0 0;
     -webkit-border-radius: 10px 10px 0 0;
 }
@@ -95,51 +136,33 @@ body
     -webkit-border-radius: 5px;
 }
 
-#content
-{
-    width: 85%;
-    height: auto;
-    margin: 0 auto;
-    
-    top: 0;
-    position: relative;
-    
-    background-color: #FFFFFF;
-    
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    
-    border: 1px solid transparent;
-}
-
-#column_left
+#records
 {
     float: left;
-    width: 15%;
-    height: 650px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    text-align: center;
+    width: 60.6%;
 }
 
-#column_left > a
+#actions
+{
+    float: right;
+    width: 36.1%;
+}
+
+.button-add
 {
     color: #000000;
     font-weight: bold;
+    
+    padding-left: 24px;
+    
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-image: url(/img/backend/icon-24-add.png);
 }
 
-#column_left > a:hover
+.button-add:hover
 {
     border-bottom: 1px dotted #000000;
-}
-
-#column_right
-{
-    width: 85%;
-    float: right;
-    height: 650px;
-    margin-top: 25px;
-    margin-bottom: 25px;
 }
 
 .heading,
@@ -150,15 +173,6 @@ body
     background-color: #292929;
 }
 
-.button-16px
-{
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
 .button-24px
 {
     width: 24px;
@@ -166,90 +180,44 @@ body
     display: inline-block;
     background-repeat: no-repeat;
     background-position: center center;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
 }
 
-.button-16px.disabled
+.button-24px:hover
 {
-    display: none;
+    background-color: #292929;
 }
 
-.button-24px.disabled
+.button-24px.disabled { display: none; }
+.button-24px.edit     { background-image: url(/img/backend/edit.png); }
+.button-24px.view     { background-image: url(/img/backend/view.png); }
+.button-24px.mail     { background-image: url(/img/backend/mail.png); }
+.button-24px.remove   { background-image: url(/img/backend/remove.png); }
+.button-24px.previous { background-image: url(/img/backend/icon-24-previous.png); }
+.button-24px.next     { background-image: url(/img/backend/icon-24-next.png); }
+
+.flash
 {
-    display: none;
+    height: 32px;
+    margin: 0 0 5px 0;
+    line-height: 32px;
+    padding: 0 8px 0 30px;
 }
 
-.button-16px-active
+.flash_success
 {
-    background-image: url(/img/backend/icon-16-active.png);
+    color: #00A017;
+    background-color: #E0F5E0;
+    border: 1px solid #00A017;
+    
+    background-repeat: no-repeat;
+    background-position: 6px center;
+    background-image: url(/img/backend/ok.png);
 }
 
-.button-16px-inactive
+.flash_close
 {
-    background-image: url(/img/backend/icon-16-inactive.png);
-}
-
-.button-24px-edit
-{
-    background-image: url(/img/backend/icon-24-edit.png);
-}
-
-.button-24px-remove
-{
-    background-image: url(/img/backend/icon-24-remove.png);
-}
-
-.button-24px-previous
-{
-    background-image: url(/img/backend/icon-24-previous.png);
-}
-
-.button-24px-next
-{
-    background-image: url(/img/backend/icon-24-next.png);
-}
-
-form#users-login
-{
-    width: 350px;
-    height: 160px;
-    margin: 100px auto 100px auto;
-}
-
-form#users-login > .input > label
-{
-    float: left;
-}
-
-form#users-login > .input > input
-{
-    float: right;
-}
-
-form#users-form
-{
-    width: 350px;
-}
-
-form#pages-form
-{
-    width: 404px;
-}
-
-table#users-table
-{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-form#news-form
-{
-    width: 404px;
-}
-
-table#news-table
-{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    color: inherit;
+    border-bottom: 1px dotted #000000;
 }

@@ -17,7 +17,7 @@ class NewsController extends AppController
 	{
 	    if ($this->News->save($this->data))
 	    {
-		$this->Session->setFlash(__('News saved successfully.', 1));
+		$this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
 		$this->redirect(array('action' => 'index'));
 	    }
 	}
@@ -33,7 +33,7 @@ class NewsController extends AppController
 		
 		if ($this->News->save($this->data))
                 {
-                    $this->Session->setFlash(__('News saved successfully.', 1));
+                    $this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
 		    $this->redirect(array('action' => 'index'));
                 }
 	    }
@@ -48,7 +48,7 @@ class NewsController extends AppController
 	{
 	    if ($this->News->remove($id))
             {
-                $this->Session->setFlash(__('News removed successfully.', 1));
+                $this->Session->setFlash(__('News removed successfully.', 1), 'flash_success');
             }
         }
 	

@@ -12,10 +12,18 @@
     
     <link rel="stylesheet" type="text/css" href="/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/backend/forms.css" />
+    <link rel="stylesheet" type="text/css" href="/css/backend/lists.css" />
     <link rel="stylesheet" type="text/css" href="/css/backend/tables.css" />
     <link rel="stylesheet" type="text/css" href="/css/backend/default.css" />
+    <link rel="stylesheet" type="text/css" href="/css/backend/jquery-ui.css" />
     
     <script type="text/javascript" src="/js/jquery-1.4.min.js">
+    </script>
+    
+    <script type="text/javascript" src="/js/jquery-ui-1.7.2.custom.min.js">
+    </script>
+    
+    <script type="text/javascript" src="/js/wymeditor/jquery.wymeditor.min.js">
     </script>
     
     <script type="text/javascript" src="/js/tinymce/jquery.tinymce.js">
@@ -24,14 +32,19 @@
     <script type="text/javascript" src="/js/clock.js">
     </script>
   </head>
-  <body>    
+  <body>
     <?php if ($session->check('Auth.User')) { ?>
-        <?=$this->element('backend/menu');?>
+      <div id="header">
+        <?=$this->element('backend/menu')?>
+      </div>
     <?php } ?>
     
     <div id="content">
         <?=$content_for_layout?>
         <div style="clear: both;"></div>
+    </div>
+    
+    <div id="footer">
     </div>
     
     <script type="text/javascript">
@@ -41,6 +54,8 @@
     {
         clock_draw_date('#clock-date', '%m %d, %y');
         clock_draw_time('#clock-time', '%H:%M:%S');
+        
+        $('.menu-button.selectable.<?=$this->params['controller']?>').css('background-color', '#FFFFFF').parent().css('background-color', '#FFFFFF');
         
       /*
         $('#menu-button-<?=$this->params['controller']?>').addClass('menu-button-active');
