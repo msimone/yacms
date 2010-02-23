@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-01-18 18:01:55 : 1263848935*/
+/* App schema generated on: 2010-02-23 17:02:10 : 1266955270*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -41,12 +41,38 @@ class AppSchema extends CakeSchema {
 		'_delete' => array('type' => 'string', 'null' => false, 'default' => '0', 'length' => 2),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
 	);
-	var $pages = array(
+	var $news = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
-		'title' => array('type' => 'string', 'null' => false, 'default' => NULL),
 		'active' => array('type' => 'boolean', 'null' => false, 'default' => NULL),
 		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'title' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'slug' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'content' => array('type' => 'text', 'null' => false, 'default' => NULL),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+	);
+	var $pages = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'lft' => array('type' => 'integer', 'null' => false, 'default' => NULL),
+		'rght' => array('type' => 'integer', 'null' => false, 'default' => NULL),
+		'order' => array('type' => 'integer', 'null' => false, 'default' => NULL),
+		'active' => array('type' => 'boolean', 'null' => false, 'default' => NULL),
+		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'modified' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'parent_id' => array('type' => 'integer', 'null' => false, 'default' => NULL),
+		'title' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'slug' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'content' => array('type' => 'text', 'null' => false, 'default' => NULL),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+	);
+	var $resources = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'modified' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'name' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'size' => array('type' => 'integer', 'null' => false, 'default' => NULL),
+		'path' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'type' => array('type' => 'string', 'null' => false, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
 	);
 	var $users = array(
@@ -56,6 +82,7 @@ class AppSchema extends CakeSchema {
 		'modified' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
 		'username' => array('type' => 'string', 'null' => false, 'default' => NULL),
 		'password' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'email' => array('type' => 'string', 'null' => false, 'default' => NULL),
 		'first_name' => array('type' => 'string', 'null' => false, 'default' => NULL),
 		'last_name' => array('type' => 'string', 'null' => false, 'default' => NULL),
 		'telephone_home' => array('type' => 'string', 'null' => false, 'default' => NULL),

@@ -17,18 +17,13 @@ class ResourcesController extends AppController
 	{
 	    if (!empty($this->data['Resource']['file']['name']))
 	    {
-                $file = $this->data['Resource']['file'];
-		$path_info = pathinfo($file['name']);
+		$this->data['Resource'] = $this->data['Resource']['file'];
 		
-		$file['name'] = Inflector::slug($path_info['filename']) . '.' . $path_info['extension'];
-		$file['path'] = Configure::read('Backend.resource_dir') . '/' . $file['name'];
+		$path_info = pathinfo($this->data['Resource']['name']);
+		$this->data['Resource']['name'] = Inflector::slug($path_info['filename']) . '.' . $path_info['extension'];
+		$this->data['Resource']['path'] = Configure::read('Backend.resource_dir') . '/' . $this->data['Resource']['name'];
 		
-		@copy($file['tmp_name'], WWW_ROOT . $file['path']);
-		
-		$this->data['Resource']['name']      = $file['name'];
-		$this->data['Resource']['size']      = $file['size'];
-		$this->data['Resource']['path']      = $file['path'];
-		$this->data['Resource']['mime_type'] = $file['type'];
+		@copy($this->data['Resource']['tmp_name'], WWW_ROOT . $this->data['Resource']['path']);
 		
 		if ($this->Resource->save($this->data))
 		{

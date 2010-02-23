@@ -5,9 +5,11 @@
 
 .list li
 {
-    height: 40px;
-    overflow: hidden;
-    margin: 0 0 5px 0;
+    margin: 0 0 3px 0;
+}
+
+.list li.even
+{
     background-color: #E6E5DC;
 }
 
@@ -16,32 +18,33 @@
     background-color: #D4D4C6;
 }
 
-.list .title,
-.list .intro,
-.list .actions
-{
-    height: 100%;
-    overflow: hidden;
-    line-height: 40px;
-    margin: 0 5px 0 5px;
-    display: inline-block;
-}
-
 .list .title
 {
     float: left;
+    line-height: 40px;
     font-weight: bold;
+    padding: 0 5px 0 5px;
 }
 
-.list .intro
+.list .preview
 {
     float: left;
     color: #A3A093;
+    line-height: 40px;
+    padding: 0 5px 0 5px;
 }
 
 .list .actions
 {
     float: right;
+    line-height: 40px;
+    padding: 0 5px 0 5px;
+}
+
+.list .wrapper
+{
+    height: 40px;
+    padding: 0 0 0 5px;
 }
 
 .list .paginator
@@ -52,89 +55,21 @@
     padding: 0 5px 0 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.tree
+.tree li
 {
-    list-style-type: none;
+    margin: 0;
+    cursor: move;
 }
 
 .tree .helper
 {
-    border: 2px dashed #000000;
-}
-
-.tree li
-{
-    cursor: move;
-}
-
-.tree .title
-{
-    float: left;
-    line-height: 40px;
-    font-weight: bold;
-    padding: 0 5px 0 5px;
-}
-
-.tree .preview
-{
-    float: left;
-    color: #A3A093;
-    line-height: 40px;
-    padding: 0 5px 0 5px;
-}
-
-.tree .actions
-{
-    float: right;
-    line-height: 40px;
-    padding: 0 5px 0 5px;
+    border: 2px dashed #A3A093;
 }
 
 .tree .wrapper
 {
-    height: 40px;
-    padding: 0 0 0 5px;
-    border-left: 2px solid #000000;
-    
     background-repeat: no-repeat;
+    border-left: 2px solid #000000;
     background-position: left center;
-    background-image: url(/img/backend/foo.gif);
+    background-image: url(/img/backend/branch.gif);
 }

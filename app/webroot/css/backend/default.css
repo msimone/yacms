@@ -194,6 +194,7 @@ body
 .button-24px.edit     { background-image: url(/img/backend/edit.png); }
 .button-24px.view     { background-image: url(/img/backend/view.png); }
 .button-24px.mail     { background-image: url(/img/backend/mail.png); }
+.button-24px.download { background-image: url(/img/backend/download.png); }
 .button-24px.remove   { background-image: url(/img/backend/remove.png); }
 .button-24px.previous { background-image: url(/img/backend/icon-24-previous.png); }
 .button-24px.next     { background-image: url(/img/backend/icon-24-next.png); }

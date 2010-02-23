@@ -4,16 +4,21 @@ class PagesController extends AppController
 {
     var $name = 'Pages';
     var $uses = array('Page');
+    var $helpers = array('Tree');
 	
     function backend_index()
     {
-	$this->set('pages', $this->Page->find('all'));
+	$pages = $this->Page->find('threaded', array('fields' => array('id', 'parent_id', 'lft', 'rght', 'title', 'slug', 'content'), 'order' => array('Page.order')));
+	$this->set('pages', $pages);
     }
     
     function backend_add()
     {
 	if (!empty($this->data))
 	{
+	    $this->data[$this->modelClass]['slug'] =
+	    Inflector::slug($this->data[$this->modelClass]['title'], '-');
+		
 	    if ($this->Page->save($this->data))
 	    {
 		$this->Session->setFlash(__('Page saved successfully.', 1), 'flash_success');
@@ -29,6 +34,8 @@ class PagesController extends AppController
             if (!empty($this->data))
             {
 		$this->Page->id = $id;
+		$this->data[$this->modelClass]['slug'] =
+		Inflector::slug($this->data[$this->modelClass]['title'], '-');
 		
 		if ($this->Page->save($this->data))
                 {
@@ -47,30 +54,10 @@ class PagesController extends AppController
     {
 	$this->autoRender = 0;
 	
-	if (isset($this->params['url']['pages']))
+	if (isset($this->params['url']['pages'])
+	    && !empty($this->params['url']['pages']))
 	{
-	    $pages = array();
-	    
-	    pr($this->params['url']['pages']);
-	    exit();
-	    
-	    foreach ($this->params['url']['pages'] as $i => $parent)
-	    {
-		$pages[] = array('id' => $parent['id'], 'order' => $i, 'page_id' => 0);
-		
-		if (isset($parent['children']))
-		{
-		    foreach ($parent['children'] as $j => $child)
-		    {
-			$pages[] = array('id' => $child['id'], 'order' => $j, 'page_id' => $parent['id']);
-		    }
-		}
-	    }
-	    
-	    pr($pages);
-	    exit();
-	    
-	    $this->Page->saveAll($pages);
+	    $this->Page->sort($this->params['url']['pages']);
 	}
     }
     
@@ -89,9 +76,7 @@ class PagesController extends AppController
     
     function display($slug = 'index')
     {
-	//$this->set('_', $this->Page->find('first', array('conditions' => array('Page.active' => '1', 'Page.slug' => $slug))));
-	
-	pr($this->Page->find('all'));
+	echo "Page/display";
 	exit();
     }
 }
