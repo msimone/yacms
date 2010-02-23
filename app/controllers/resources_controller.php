@@ -15,9 +15,9 @@ class ResourcesController extends AppController
     {
 	if (!empty($this->data))
 	{
-	    if (!empty($this->data['file']['name']))
+	    if (!empty($this->data['Resource']['file']['name']))
 	    {
-		$file = $this->data['Resource']['file'];
+                $file = $this->data['Resource']['file'];
 		$path_info = pathinfo($file['name']);
 		
 		$file['name'] = Inflector::slug($path_info['filename']) . '.' . $path_info['extension'];

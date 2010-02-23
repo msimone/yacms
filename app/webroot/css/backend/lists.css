@@ -88,25 +88,53 @@
 
 
 
-.helper
-{
-    border: 2px dashed #000000;
-}
+
 
 .tree
 {
     list-style-type: none;
 }
 
-.tree li
+.tree .helper
 {
-    margin: 0 0 5px 0;
-    line-height: 40px;
-    padding: 0 5px 0 5px;
-    background-color: #E6E5DC;
+    border: 2px dashed #000000;
 }
 
-.list li.odd
+.tree li
 {
-    background-color: #D4D4C6;
+    cursor: move;
+}
+
+.tree .title
+{
+    float: left;
+    line-height: 40px;
+    font-weight: bold;
+    padding: 0 5px 0 5px;
+}
+
+.tree .preview
+{
+    float: left;
+    color: #A3A093;
+    line-height: 40px;
+    padding: 0 5px 0 5px;
+}
+
+.tree .actions
+{
+    float: right;
+    line-height: 40px;
+    padding: 0 5px 0 5px;
+}
+
+.tree .wrapper
+{
+    height: 40px;
+    padding: 0 0 0 5px;
+    border-left: 2px solid #000000;
+    
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-image: url(/img/backend/foo.gif);
 }

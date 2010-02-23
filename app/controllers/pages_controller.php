@@ -43,6 +43,37 @@ class PagesController extends AppController
 	$this->render('backend_add');
     }
     
+    function backend_sort()
+    {
+	$this->autoRender = 0;
+	
+	if (isset($this->params['url']['pages']))
+	{
+	    $pages = array();
+	    
+	    pr($this->params['url']['pages']);
+	    exit();
+	    
+	    foreach ($this->params['url']['pages'] as $i => $parent)
+	    {
+		$pages[] = array('id' => $parent['id'], 'order' => $i, 'page_id' => 0);
+		
+		if (isset($parent['children']))
+		{
+		    foreach ($parent['children'] as $j => $child)
+		    {
+			$pages[] = array('id' => $child['id'], 'order' => $j, 'page_id' => $parent['id']);
+		    }
+		}
+	    }
+	    
+	    pr($pages);
+	    exit();
+	    
+	    $this->Page->saveAll($pages);
+	}
+    }
+    
     function backend_remove($id = null)
     {
 	if ($id)
@@ -55,10 +86,13 @@ class PagesController extends AppController
 	
 	$this->redirect(array('action' => 'index'));
     }
-	
+    
     function display($slug = 'index')
     {
-	$this->set('_', $this->Page->find('first', array('conditions' => array('Page.active' => '1', 'Page.slug' => $slug))));
+	//$this->set('_', $this->Page->find('first', array('conditions' => array('Page.active' => '1', 'Page.slug' => $slug))));
+	
+	pr($this->Page->find('all'));
+	exit();
     }
 }
 

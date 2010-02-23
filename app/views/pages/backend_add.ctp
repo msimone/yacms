@@ -2,9 +2,7 @@
 
 <?=$form->create('Page', array('class' => 'model-add', 'url' => $html->url()))?>
 
-<?=$form->input('title', array('label' => __('Page Title:', 1)))?>
-
-<?=$form->input('slug',       array('label' => __('Slug:', 1)))?>
+<?=$form->input('title', array('label' => __('Title:', 1)))?>
 
 <div id="tabs">
     <ul>
@@ -13,7 +11,7 @@
         <li><a href="#tab-3">Content 3</a></li>
     </ul>
     <div id="tab-1">
-        <?=$form->input('content1', array('class' => 'wymeditor', 'label' => false))?>
+        <?=$form->input('content', array('class' => 'wymeditor', 'label' => false))?>
     </div>
     <div id="tab-2">
         <?=$form->input('content2', array('class' => 'wymeditor', 'label' => false))?>
@@ -23,7 +21,9 @@
     </div>
 </div>
 
-<?=$form->end('Save')?>
+<?=$form->submit('Save', array('class' => 'wymupdate'))?>
+
+<?=$form->end()?>
 
 <script type="text/javascript">
 $(function()
