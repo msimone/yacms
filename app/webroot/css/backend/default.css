@@ -12,9 +12,7 @@ body
 {
     font-size: 13px;
     font-family: Arial;
-    
     background-color: #000000;
-    background-color: orange;
     
     /*
     background-repeat: repeat;
@@ -59,9 +57,11 @@ body
 #footer
 {
     width: 960px;
-    height: 150px;
-    padding: 15px;
+    padding: 5px;
     margin: 0 auto;
+    color: #FFFFFF;
+    font-size: 10px;
+    text-align: center;
 }
 
 #menu
@@ -149,21 +149,29 @@ body
     width: 36.1%;
 }
 
-.button-add
+a.add
 {
+    width: 307px;
+    height: 30px;
     color: #000000;
+    display: block;
+    cursor: pointer;
+    text-align: left;
     font-weight: bold;
+    line-height: 30px;
+    padding: 0 8px 0 30px;
+    border: 1px solid #000000;
     
-    padding-left: 24px;
+    background-color: #F0F0F0;
     
-    background-position: left center;
     background-repeat: no-repeat;
-    background-image: url(/img/backend/icon-24-add.png);
+    background-position: 6px center;
+    background-image: url(/img/backend/add.png);
 }
 
-.button-add:hover
+a.add:hover
 {
-    border-bottom: 1px dotted #000000;
+    background-color: #D4D4C6;
 }
 
 .heading,
@@ -216,6 +224,17 @@ body
     background-repeat: no-repeat;
     background-position: 6px center;
     background-image: url(/img/backend/ok.png);
+}
+
+.flash_failed
+{
+    color: #9E0200;
+    background-color: #F4E1E1;
+    border: 1px solid #9E0200;
+    
+    background-repeat: no-repeat;
+    background-position: 6px center;
+    background-image: url(/img/backend/fail.png);
 }
 
 .flash_close

@@ -87,5 +87,17 @@ class DATABASE_CONFIG {
 		'database' => 'cms',
 		'prefix' => '',
 	);
+	
+	/*
+        var $default = array(
+		'driver' => 'mysql',
+            	'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'bdwebparc',
+		'password' => 'parc2010',
+		'database' => 'cms',
+		'prefix' => '',
+	);
+	*/
 }
 ?>

@@ -45,6 +45,7 @@
     </div>
     
     <div id="footer">
+      By Dragonfly Consulting - Copyright <?=date('Y')?>
     </div>
     
     <script type="text/javascript">

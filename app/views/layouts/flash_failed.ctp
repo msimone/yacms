@@ -1,0 +1,1 @@
+<div class="flash flash_failed"><?=$content_for_layout?> (<a class="flash_close" onclick="$(this).parent().hide(); return false;" href=""><?=__('close', 1)?></a>)</div>

@@ -1,5 +1,5 @@
-<div id="column_left">
-    <h1><?=__('Galleries', 1)?></h1>
+<div id="records">
 </div>
-<div id="column_right">
+<div id="actions">
+    <?=$html->link(__('Create a gallery', 1), array('action' => 'add'), array('class' => 'add'), null)?>
 </div>

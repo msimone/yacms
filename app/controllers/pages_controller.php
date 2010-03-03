@@ -16,14 +16,16 @@ class PagesController extends AppController
     {
 	if (!empty($this->data))
 	{
-	    $this->data[$this->modelClass]['slug'] =
-	    Inflector::slug($this->data[$this->modelClass]['title'], '-');
-		
 	    if ($this->Page->save($this->data))
 	    {
 		$this->Session->setFlash(__('Page saved successfully.', 1), 'flash_success');
-		$this->redirect(array('action' => 'index'));
 	    }
+	    else
+            {
+		$this->Session->setFlash(__('Unable to save page.', 1), 'flash_failed');
+            }
+	    
+	    $this->redirect(array('action' => 'index'));
 	}
     }
     
@@ -34,20 +36,40 @@ class PagesController extends AppController
             if (!empty($this->data))
             {
 		$this->Page->id = $id;
-		$this->data[$this->modelClass]['slug'] =
-		Inflector::slug($this->data[$this->modelClass]['title'], '-');
 		
 		if ($this->Page->save($this->data))
                 {
 		    $this->Session->setFlash(__('Page saved successfully.', 1), 'flash_success');
-		    $this->redirect(array('action' => 'index'));
                 }
+		else
+		{
+		    $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
+		}
+		
+		$this->redirect(array('action' => 'index'));
 	    }
 	    
 	    $this->data = $this->Page->findById($id);
 	}
 	
 	$this->render('backend_add');
+    }
+    
+    function backend_remove($id = null)
+    {
+	if ($id)
+	{
+	    if ($this->Page->remove($id))
+            {
+                $this->Session->setFlash(__('Page removed successfully.', 1), 'flash_success');
+            }
+	    else
+            {
+                $this->Session->setFlash(__('Unable to remove page.', 1), 'flash_failed');
+            }
+        }
+	
+	$this->redirect(array('action' => 'index'));
     }
     
     function backend_sort()
@@ -61,23 +83,9 @@ class PagesController extends AppController
 	}
     }
     
-    function backend_remove($id = null)
-    {
-	if ($id)
-	{
-	    if ($this->Page->remove($id))
-            {
-                $this->Session->setFlash(__('Page removed successfully.', 1), 'flash_success');
-            }
-        }
-	
-	$this->redirect(array('action' => 'index'));
-    }
-    
     function display($slug = 'index')
     {
-	echo "Page/display";
-	exit();
+	$this->render('templates/1');
     }
 }
 

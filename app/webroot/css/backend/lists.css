@@ -43,7 +43,8 @@
 
 .list .wrapper
 {
-    height: 40px;
+    overflow: hidden;
+    line-height: 40px;
     padding: 0 0 0 5px;
 }
 
@@ -59,6 +60,7 @@
 {
     margin: 0;
     cursor: move;
+    margin-top: 3px;
 }
 
 .tree .helper
@@ -70,6 +72,6 @@
 {
     background-repeat: no-repeat;
     border-left: 2px solid #000000;
-    background-position: left center;
+    background-position: top left;
     background-image: url(/img/backend/branch.gif);
 }

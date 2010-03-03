@@ -5,6 +5,14 @@ class Page extends AppModel
     var $name = 'Page';
     var $actsAs = array('Tree');
     
+    function beforeSave()
+    {
+        $this->data[$this->name]['slug'] =
+        Inflector::slug($this->data[$this->name]['title'], '-');
+        
+        return true;
+    }
+    
     function sort($pages, $parent = 0)
     {
         foreach ($pages as $idx => $page)

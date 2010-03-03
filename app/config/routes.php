@@ -2,6 +2,7 @@
 
 // backend
 Router::connect('/cms', array('controller' => 'home', 'action' => 'index', 'backend' => true));
+Router::connect('/cms/:controller', array('action' => 'index', 'backend' => true));
 Router::connect('/cms/:controller/:action/*', array('backend' => true));
 
 // frontend - static pages

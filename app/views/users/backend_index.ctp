@@ -9,7 +9,7 @@
                         <div class="title"><?=$i['User']['username']?></div>
                         <div class="preview">(<?=$i['User']['email']?>) created <?=$i['User']['created']?></div>
                         <div class="actions">
-                            <?=$html->link('', array('action' => 'remove', $i['User']['id']), array('title' => __('Remove this user', 1), 'class' => 'button-24px remove'), __('Are you sure you want to remove this news?', 1))?>
+                            <?=$html->link('', array('action' => 'remove', $i['User']['id']), array('title' => __('Remove this user', 1), 'class' => 'button-24px remove'), __('Are you sure you want to remove this user?', 1))?>
                             <?=$html->link('', array('action' => 'edit',   $i['User']['id']), array('title' => __('Edit this user', 1), 'class' => 'button-24px edit'), null)?>
                             <?=$html->link('', array('action' => 'edit',   $i['User']['id']), array('title' => __('Mail this user', 1), 'class' => 'button-24px mail'), null)?>
                         </div>
@@ -24,4 +24,5 @@
     <?php } ?>
 </div>
 <div id="actions">
+    <?=$html->link(__('Create a user', 1), array('action' => 'add'), array('class' => 'add'), null)?>
 </div>

@@ -8,7 +8,7 @@ class NewsController extends AppController
     function backend_index()
     {
         $this->paginate = array('limit' => 15);
-        $this->set('news', $this->paginate('News'));
+        $this->set('news', $this->paginate($this->modelClass));
     }
     
     function backend_add()
@@ -17,9 +17,14 @@ class NewsController extends AppController
 	{
 	    if ($this->News->save($this->data))
 	    {
-		$this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
-		$this->redirect(array('action' => 'index'));
+                $this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
 	    }
+            else
+            {
+                $this->Session->setFlash(__('Unable to save news.', 1), 'flash_failed');
+            }
+            
+            $this->redirect(array('action' => 'index'));
 	}
     }
     
@@ -34,11 +39,16 @@ class NewsController extends AppController
 		if ($this->News->save($this->data))
                 {
                     $this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
-		    $this->redirect(array('action' => 'index'));
                 }
+                else
+                {
+                    $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
+                }
+                
+                $this->redirect(array('action' => 'index'));
 	    }
-	    
-	    $this->data = $this->News->findById($id);
+            
+            $this->data = $this->News->findById($id);
 	}
 	
 	$this->render('backend_add');
@@ -52,26 +62,13 @@ class NewsController extends AppController
             {
                 $this->Session->setFlash(__('News removed successfully.', 1), 'flash_success');
             }
-        }
-	
-	$this->redirect(array('action' => 'index'));
-    }
-    
-    function backend_toggle($id = null)
-    {
-        $this->autoRender = 0;
-        Configure::write('debug', 0);
-        
-        if ($id)
-        {
-            $this->data = $this->News->read('active', $id);
-            
-            if (!empty($this->data))
+            else
             {
-                $this->data[$this->modelClass]['active'] = !$this->data[$this->modelClass]['active'];
-                $this->News->save($this->data);
+                $this->Session->setFlash(__('Unable to remove news.', 1), 'flash_failed');
             }
         }
+        
+        $this->redirect(array('action' => 'index'));
     }
 }
 

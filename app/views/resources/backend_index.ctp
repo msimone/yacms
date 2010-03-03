@@ -24,8 +24,6 @@
 </div>
 <div id="actions">
     <?=$form->create('Resource', array('class' => 'upload-form', 'type' => 'file'))?>
-    
-    <?=$form->input('file', array('type' => 'file', 'size' => '30', 'label' => false))?>
-    
+    <?=$form->input('Resource', array('type' => 'file', 'size' => '30', 'label' => false))?>
     <?=$form->end(__('Upload a new resource', 1))?>
 </div>

@@ -162,10 +162,9 @@
 .login-form .input label
 {
     float: left;
-    height: 26px;
     display: block;
     font-weight: bold;
-    line-height: 26px;
+    line-height: 20px;
 }
 
 .login-form .input input

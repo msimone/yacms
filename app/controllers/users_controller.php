@@ -8,23 +8,28 @@ class UsersController extends AppController
     function backend_index()
     {
         $this->paginate = array('limit' => 8);
-        $this->set('users', $this->paginate('User'));
+        $this->set('users', $this->paginate($this->modelClass));
     }
     
     function backend_add()
     {
         if (!empty($this->data))
         {
-            if (!empty($this->data['User']['passwd']))
+            if (!empty($this->data[$this->modelClass]['passwd']))
             {
-                $this->data['User']['password'] = $this->Auth->password($this->data['User']['passwd']);
+                $this->data[$this->modelClass]['password'] = $this->Auth->password($this->data[$this->modelClass]['passwd']);
             }
             
             if ($this->User->save($this->data))
             {
                 $this->Session->setFlash(__('User saved successfully.', 1), 'flash_success');
-                $this->redirect(array('action' => 'index'));
             }
+            else
+            {
+                $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
+            }
+            
+            $this->redirect(array('action' => 'index'));
         }
     }
     
@@ -36,16 +41,21 @@ class UsersController extends AppController
             {
                 $this->User->id = $id;
                 
-                if (!empty($this->data['User']['passwd']))
+                if (!empty($this->data[$this->modelClass]['passwd']))
                 {
-                    $this->data['User']['password'] = $this->Auth->password($this->data['User']['passwd']);
+                    $this->data[$this->modelClass]['password'] = $this->Auth->password($this->data[$this->modelClass]['passwd']);
                 }
                 
                 if ($this->User->save($this->data))
                 {
                     $this->Session->setFlash(__('User saved successfully.', 1), 'flash_success');
-                    $this->redirect(array('action' => 'index'));
                 }
+                else
+                {
+                    $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
+                }
+                
+                $this->redirect(array('action' => 'index'));
             }
             
             $this->data = $this->User->findById($id);
@@ -61,6 +71,10 @@ class UsersController extends AppController
             if ($this->User->remove($id))
             {
                 $this->Session->setFlash(__('User removed successfully.', 1), 'flash_success');
+            }
+            else
+            {
+                $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
             }
         }
         
