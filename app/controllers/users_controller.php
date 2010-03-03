@@ -74,7 +74,7 @@ class UsersController extends AppController
             }
             else
             {
-                $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
+                $this->Session->setFlash(__('Unable to remove user.', 1), 'flash_failed');
             }
         }
         
