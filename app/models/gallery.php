@@ -13,11 +13,9 @@ class Gallery extends AppModel
         ),
      );
     
-    function beforeSave()
+    function afterSave()
     {
-        $this->data[$this->name]['slug'] = Inflector::slug($this->data[$this->name]['title'], '-');
-        
-        return true;
+        $this->saveField('slug', Inflector::slug($this->data[$this->name]['title'], '-') . '-' . $this->id, array('callbacks' => false));
     }
 }
 
