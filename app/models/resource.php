@@ -11,10 +11,8 @@ class Resource extends AppModel
             $file = @pathinfo($this->data[$this->name]['name']);
             $this->data[$this->name]['name'] = Inflector::slug($file['filename']) . '.' . $file['extension'];
             $this->data[$this->name]['path'] = Configure::read('Backend.resource_dir') . '/' . $this->data[$this->name]['name'];
-            
-            @copy($this->data[$this->name]['tmp_name'], WWW_ROOT . $this->data[$this->name]['path']);
-            
-            return true;
+	    
+	    return @move_uploaded_file($this->data[$this->name]['tmp_name'], WWW_ROOT . $this->data[$this->name]['path']);
         }
         
         return false;
@@ -22,7 +20,7 @@ class Resource extends AppModel
     
     function afterDelete()
     {
-        @unlink(WWW_ROOT . $this->data[$this->name]['path']);
+	@unlink(WWW_ROOT . $this->data[$this->name]['path']);
     }
 }
 

@@ -97,14 +97,14 @@
     text-align: left;
 }
 
-.model-add .input label
+.model-add .input.text label
 {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.model-add .input input
+.model-add .input.text input
 {
     width: 945px;
     height: 30px;

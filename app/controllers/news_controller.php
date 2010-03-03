@@ -42,7 +42,7 @@ class NewsController extends AppController
                 }
                 else
                 {
-                    $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
+                    $this->Session->setFlash(__('Unable to save news.', 1), 'flash_failed');
                 }
                 
                 $this->redirect(array('action' => 'index'));

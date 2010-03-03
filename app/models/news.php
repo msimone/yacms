@@ -6,8 +6,7 @@ class News extends AppModel
     
     function beforeSave()
     {
-        $this->data[$this->name]['slug'] =
-        Inflector::slug($this->data[$this->name]['title'], '-');
+        $this->data[$this->name]['slug'] = Inflector::slug($this->data[$this->name]['title'], '-');
         
         return true;
     }
