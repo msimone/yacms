@@ -4,6 +4,8 @@
 
 <?=$form->input('title', array('label' => __('Title:', 1)))?>
 
+<?=$form->input('slug', array('label' => __('Slug:', 1)))?>
+
 <div id="tabs">
     <ul>
         <li><a href="#tab-1">Content 1</a></li>

@@ -7,7 +7,10 @@ class Page extends AppModel
     
     function afterSave()
     {
-        $this->saveField('slug', Inflector::slug($this->data[$this->name]['title'], '-') . '-' . $this->id, array('callbacks' => false));
+        if (empty($this->data[$this->name]['slug']))
+        {
+            $this->saveField('slug', Inflector::slug($this->data[$this->name]['title'], '-') . '-' . $this->id, array('callbacks' => false));
+        }
     }
     
     function sort($pages, $parent = 0)
@@ -15,10 +18,12 @@ class Page extends AppModel
         foreach ($pages as $idx => $page)
         {
             $this->id = $page['id'];
-            $this->save(array('order' => $idx, 'parent_id' => $parent));
+            $this->save(array('order' => $idx, 'parent_id' => $parent), array('callbacks' => false));
             
             if (isset($page['children']) && is_array($page['children']))
+            {
                 $this->sort($page['children'], $page['id']);
+            }
         }
     }
 }

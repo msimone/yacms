@@ -3,7 +3,7 @@
 class PagesController extends AppController
 {
     var $name = 'Pages';
-    var $uses = array('Page');
+    var $uses = array('Page', 'News');
     var $helpers = array('Tree');
 	
     function backend_index()
@@ -76,15 +76,31 @@ class PagesController extends AppController
     {
 	$this->autoRender = 0;
 	
-	if (isset($this->params['url']['pages'])
-	    && !empty($this->params['url']['pages']))
+	if (isset($this->params['url']['pages']))
 	{
 	    $this->Page->sort($this->params['url']['pages']);
 	}
     }
     
-    function display($slug = 'index')
+    function display($slug = 'home')
     {
+	$menu_top_pages = $this->Page->find('threaded');
+	$this->set('menu_top_pages', $menu_top_pages);
+	
+	//$menu_bottom_pages = $this->Page->find('threaded');
+	//$this->set('menu_bottom_pages', $menu_bottom_pages);
+	
+	$news = $this->News->find('all', array('conditions' => array(), 'limit' => '3'));
+	$this->set('news', $news);
+	
+	$self = $this->Page->find('first', array('conditions' => array('Page.slug' => $slug)));
+	$this->set('self', $self);
+	
+	if (empty($self))
+	{
+	    //error 404
+	}
+	
 	$this->render('templates/1');
     }
 }

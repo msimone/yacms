@@ -32,10 +32,10 @@
 						<div class="menuFotos">
 							<h4>NOTICIES</h4>
 							<div class="caja">
-								<p><a href="#">PRESENTACIÓ DEL PROYECTE DE RESTAURACIÓ DE SANT JUST. +INFO</a></p>
-								<p><a href="#">LA GENERALITAT S'INCORPORA AL CONSORCI. +INFO</a></p>
-								<p><a href="#">EL PEP S'INCORPORA AL CONSORCI DEL PARC DE COLLSEROLA. +INFO</a></p>
-								<p align="right"><a href="#"><span class="noticias">+ NOTICIAS</span></a></p>
+								<?php foreach ($news as $idx => $value) {?>
+									<p><a href="/news/<?=$value['News']['slug']?>"><?=$value['News']['title']?></a></p>
+								<?php } ?>
+								<p align="right"><a href="/news"><span class="noticias">+ NOTICIAS</span></a></p>
 							</div>
 						</div><!-- Fin noticias-->
 					</div>
@@ -133,8 +133,6 @@
 				</div>
 				</div>
 				<div id="texto" class="derecha" style=" width:550px">
-					<h3>BENVINGUTS</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<?=$self['Page']['content']?>
 				</div><!--Fin texto-->
 			</div><!--Fin descripcion-->

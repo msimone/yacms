@@ -38,7 +38,7 @@ class NewsController extends AppController
 		
 		if ($this->News->save($this->data))
                 {
-                    $this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
+		    $this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
                 }
                 else
                 {
@@ -69,6 +69,18 @@ class NewsController extends AppController
         }
         
         $this->redirect(array('action' => 'index'));
+    }
+    
+    function display($slug = null)
+    {
+	if (!$slug)
+	{
+	    $this->render('templates/index');
+	}
+	else
+	{
+	    $this->render('templates/news');
+	}
     }
 }
 
