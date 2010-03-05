@@ -5,53 +5,38 @@ class PagesController extends AppController
     var $name = 'Pages';
     var $uses = array('Page', 'News');
     var $helpers = array('Tree');
-	
+    
     function backend_index()
     {
 	$pages = $this->Page->find('threaded', array('fields' => array('id', 'parent_id', 'lft', 'rght', 'title', 'slug', 'content'), 'order' => array('Page.order')));
 	$this->set('pages', $pages);
     }
     
-    function backend_add()
+    function backend_add($id = null)
     {
-	if (!empty($this->data))
+	$this->Page->id = $id;
+	
+	if (empty($this->data))
+	{
+	    $this->data = $this->Page->read();
+	}
+	else
 	{
 	    if ($this->Page->save($this->data))
 	    {
 		$this->Session->setFlash(__('Page saved successfully.', 1), 'flash_success');
+		$this->redirect(array('action' => 'index'));
 	    }
 	    else
             {
 		$this->Session->setFlash(__('Unable to save page.', 1), 'flash_failed');
             }
-	    
-	    $this->redirect(array('action' => 'index'));
 	}
     }
     
     function backend_edit($id = null)
     {
-	if ($id)
-        {
-            if (!empty($this->data))
-            {
-		$this->Page->id = $id;
-		
-		if ($this->Page->save($this->data))
-                {
-		    $this->Session->setFlash(__('Page saved successfully.', 1), 'flash_success');
-                }
-		else
-		{
-		    $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
-		}
-		
-		$this->redirect(array('action' => 'index'));
-	    }
-	    
-	    $this->data = $this->Page->findById($id);
-	}
-	
+	$this->backend_add($id);
 	$this->render('backend_add');
     }
     

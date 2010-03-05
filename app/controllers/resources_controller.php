@@ -24,17 +24,19 @@ class ResourcesController extends AppController
                 $this->Session->setFlash(__('Unable to save resource.', 1), 'flash_failed');
             }
 	}
-        
-        $this->redirect(array('action' => 'index'));
+	
+	$this->redirect(array('action' => 'index'));
     }
     
     function backend_remove($id = null)
     {
+	$this->Resource->id = $id;
+	
 	if ($id)
 	{
-            $this->data = $this->Resource->read('path', $id);
-            
-	    if ($this->Resource->remove($id))
+            $this->data = $this->Resource->read('path');
+	    
+	    if ($this->Resource->remove())
 	    {
                 $this->Session->setFlash(__('Resource removed successfully.', 1), 'flash_success');
 	    }

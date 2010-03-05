@@ -1,6 +1,6 @@
 <?php $session->flash(); ?>
 
-<?=$form->create('Page', array('class' => 'model-add', 'url' => $html->url()))?>
+<?=$form->create('Page', array('class' => 'model-add'))?>
 
 <?=$form->input('title', array('label' => __('Title:', 1)))?>
 

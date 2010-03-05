@@ -9,7 +9,7 @@
 			<div class="title"><?=$i['Resource']['name']?></div>
 			<div class="preview"><?=round($i['Resource']['size'] / 1024, 1)?> KB - <?=$i['Resource']['type']?></div>
 			<div class="actions">
-			    <?=$html->link('', array('action' => 'remove', $i['Resource']['id']), array('title' => __('Remove this resource', 1), 'class' => 'button-24px remove'), __('Are you sure you want to remove this resource?', 1))?>
+			    <?=$html->link('', array('action' => 'remove', $i['Resource']['id'], 'backend' => true), array('title' => __('Remove this resource', 1), 'class' => 'button-24px remove'), __('Are you sure you want to remove this resource?', 1))?>
 			    <?=$html->link('', '/' . $i['Resource']['path'], array('title' => __('Download this resource', 1), 'class' => 'button-24px download'), null)?>
 			</div>
 		    </div>

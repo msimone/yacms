@@ -64,7 +64,7 @@
  * 'admin' 		-> admin_index() and /admin/controller/index
  * 'superuser' -> superuser_index() and /superuser/controller/index
  */
-    Configure::write('Routing.admin', 'backend');
+	Configure::write('Routing.admin', 'backend');
 
 /**
  * Turn off all caching application-wide.
@@ -229,6 +229,7 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
-        
+	
+	Configure::write('Config.language', 'eng');
         Configure::write('Backend.resource_dir', 'res');
 ?>

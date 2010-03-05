@@ -1,0 +1,304 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-03-05 17:21-0300\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: /controllers/galleries_controller.php:26
+msgid "Gallery saved successfully."
+msgstr ""
+
+#: /controllers/galleries_controller.php:31
+msgid "Unable to save gallery."
+msgstr ""
+
+#: /controllers/galleries_controller.php:52
+msgid "Gallery removed successfully."
+msgstr ""
+
+#: /controllers/galleries_controller.php:56
+msgid "Unable to remove gallery."
+msgstr ""
+
+#: /controllers/news_controller.php:26
+msgid "News saved successfully."
+msgstr ""
+
+#: /controllers/news_controller.php:31
+msgid "Unable to save news."
+msgstr ""
+
+#: /controllers/news_controller.php:48
+msgid "News removed successfully."
+msgstr ""
+
+#: /controllers/news_controller.php:52
+msgid "Unable to remove news."
+msgstr ""
+
+#: /controllers/pages_controller.php:27
+msgid "Page saved successfully."
+msgstr ""
+
+#: /controllers/pages_controller.php:32
+msgid "Unable to save page."
+msgstr ""
+
+#: /controllers/pages_controller.php:49
+msgid "Page removed successfully."
+msgstr ""
+
+#: /controllers/pages_controller.php:53
+msgid "Unable to remove page."
+msgstr ""
+
+#: /controllers/resources_controller.php:20
+msgid "Resource saved successfully."
+msgstr ""
+
+#: /controllers/resources_controller.php:24
+msgid "Unable to save resource."
+msgstr ""
+
+#: /controllers/resources_controller.php:41
+msgid "Resource removed successfully."
+msgstr ""
+
+#: /controllers/resources_controller.php:45
+msgid "Unable to remove resource."
+msgstr ""
+
+#: /controllers/users_controller.php:26
+msgid "User saved successfully."
+msgstr ""
+
+#: /controllers/users_controller.php:31
+msgid "Unable to save user."
+msgstr ""
+
+#: /controllers/users_controller.php:48
+msgid "User removed successfully."
+msgstr ""
+
+#: /controllers/users_controller.php:52
+msgid "Unable to remove user."
+msgstr ""
+
+#: /plugins/settings/views/settings/backend_add.ctp:3
+#: /views/news/backend_add.ctp:5
+msgid "Title"
+msgstr ""
+
+#: /views/elements/backend/menu.ctp:9
+msgid "Home"
+msgstr ""
+
+#: /views/elements/backend/menu.ctp:12
+msgid "Pages"
+msgstr ""
+
+#: /views/elements/backend/menu.ctp:15
+msgid "News"
+msgstr ""
+
+#: /views/elements/backend/menu.ctp:18
+msgid "Galleries"
+msgstr ""
+
+#: /views/elements/backend/menu.ctp:21
+msgid "Resources"
+msgstr ""
+
+#: /views/elements/backend/menu.ctp:24
+msgid "Users"
+msgstr ""
+
+#: /views/elements/backend/menu.ctp:27
+msgid "Logout"
+msgstr ""
+
+#: /views/elements/backend/menu.ctp:27
+msgid "Are you sure you want to logout?"
+msgstr ""
+
+#: /views/elements/backend/pages-tree.ctp:12
+msgid "Remove this page"
+msgstr ""
+
+#: /views/elements/backend/pages-tree.ctp:12
+msgid "Are you sure you want to remove this page?"
+msgstr ""
+
+#: /views/elements/backend/pages-tree.ctp:13
+msgid "Edit this page"
+msgstr ""
+
+#: /views/elements/backend/pages-tree.ctp:14
+msgid "View this page"
+msgstr ""
+
+#: /views/galleries/backend_add.ctp:5
+#: /views/pages/backend_add.ctp:5
+msgid "Title:"
+msgstr ""
+
+#: /views/galleries/backend_index.ctp:12
+msgid "Remove this gallery"
+msgstr ""
+
+#: /views/galleries/backend_index.ctp:12
+msgid "Are you sure you want to remove this gallery?"
+msgstr ""
+
+#: /views/galleries/backend_index.ctp:13
+msgid "Edit this gallery"
+msgstr ""
+
+#: /views/galleries/backend_index.ctp:26
+msgid "Create a gallery"
+msgstr ""
+
+#: /views/layouts/backend.ctp:41
+msgid "English"
+msgstr ""
+
+#: /views/layouts/backend.ctp:42
+msgid "Catalan"
+msgstr ""
+
+#: /views/layouts/backend.ctp:43
+msgid "Spanish"
+msgstr ""
+
+#: /views/layouts/flash_failed.ctp:1
+#: /views/layouts/flash_success.ctp:1
+msgid "close"
+msgstr ""
+
+#: /views/news/backend_index.ctp:12
+msgid "Remove this news"
+msgstr ""
+
+#: /views/news/backend_index.ctp:12
+msgid "Are you sure you want to remove this news?"
+msgstr ""
+
+#: /views/news/backend_index.ctp:13
+msgid "Edit this news"
+msgstr ""
+
+#: /views/news/backend_index.ctp:14
+msgid "View this news"
+msgstr ""
+
+#: /views/news/backend_index.ctp:27
+msgid "Create a news"
+msgstr ""
+
+#: /views/pages/backend_add.ctp:7
+msgid "Slug:"
+msgstr ""
+
+#: /views/pages/backend_index.ctp:6
+msgid "Create a page"
+msgstr ""
+
+#: /views/resources/backend_index.ctp:12
+msgid "Remove this resource"
+msgstr ""
+
+#: /views/resources/backend_index.ctp:12
+msgid "Are you sure you want to remove this resource?"
+msgstr ""
+
+#: /views/resources/backend_index.ctp:13
+msgid "Download this resource"
+msgstr ""
+
+#: /views/resources/backend_index.ctp:28
+msgid "Upload a new resource"
+msgstr ""
+
+#: /views/users/backend_add.ctp:4
+msgid "Active"
+msgstr ""
+
+#: /views/users/backend_add.ctp:5
+msgid "Usermame"
+msgstr ""
+
+#: /views/users/backend_add.ctp:6
+msgid "Password"
+msgstr ""
+
+#: /views/users/backend_add.ctp:7
+msgid "Confirm password"
+msgstr ""
+
+#: /views/users/backend_add.ctp:8
+msgid "E-mail"
+msgstr ""
+
+#: /views/users/backend_add.ctp:9
+msgid "First name"
+msgstr ""
+
+#: /views/users/backend_add.ctp:10
+msgid "Last name"
+msgstr ""
+
+#: /views/users/backend_add.ctp:11
+msgid "Telephone (home)"
+msgstr ""
+
+#: /views/users/backend_add.ctp:12
+msgid "Telephone (work)"
+msgstr ""
+
+#: /views/users/backend_add.ctp:13
+msgid "Save"
+msgstr ""
+
+#: /views/users/backend_index.ctp:12
+msgid "Remove this user"
+msgstr ""
+
+#: /views/users/backend_index.ctp:12
+msgid "Are you sure you want to remove this user?"
+msgstr ""
+
+#: /views/users/backend_index.ctp:13
+msgid "Edit this user"
+msgstr ""
+
+#: /views/users/backend_index.ctp:14
+msgid "Mail this user"
+msgstr ""
+
+#: /views/users/backend_index.ctp:27
+msgid "Create a user"
+msgstr ""
+
+#: /views/users/backend_login.ctp:3
+msgid "Username:"
+msgstr ""
+
+#: /views/users/backend_login.ctp:4
+msgid "Password:"
+msgstr ""
+
+#: /views/users/backend_login.ctp:8
+msgid "Login"
+msgstr ""
+

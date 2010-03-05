@@ -7,50 +7,35 @@ class NewsController extends AppController
     
     function backend_index()
     {
-        $this->paginate = array('limit' => 15);
+	$this->paginate = array('limit' => 15);
         $this->set('news', $this->paginate($this->modelClass));
     }
     
-    function backend_add()
+    function backend_add($id = null)
     {
-        if (!empty($this->data))
+	$this->News->id = $id;
+	
+        if (empty($this->data))
+	{
+	    $this->data = $this->News->read();
+	}
+	else
 	{
 	    if ($this->News->save($this->data))
 	    {
                 $this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
+		$this->redirect(array('action' => 'index'));
 	    }
             else
             {
-                $this->Session->setFlash(__('Unable to save news.', 1), 'flash_failed');
+		$this->Session->setFlash(__('Unable to save news.', 1), 'flash_failed');
             }
-            
-            $this->redirect(array('action' => 'index'));
+	    
 	}
     }
-    
     function backend_edit($id = null)
     {
-	if ($id)
-        {
-            if (!empty($this->data))
-            {
-		$this->News->id = $id;
-		
-		if ($this->News->save($this->data))
-                {
-		    $this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
-                }
-                else
-                {
-                    $this->Session->setFlash(__('Unable to save news.', 1), 'flash_failed');
-                }
-                
-                $this->redirect(array('action' => 'index'));
-	    }
-            
-            $this->data = $this->News->findById($id);
-	}
-	
+	$this->backend_add($id);
 	$this->render('backend_add');
     }
     
@@ -67,8 +52,8 @@ class NewsController extends AppController
                 $this->Session->setFlash(__('Unable to remove news.', 1), 'flash_failed');
             }
         }
-        
-        $this->redirect(array('action' => 'index'));
+	
+	$this->redirect(array('action' => 'index'));
     }
     
     function display($slug = null)

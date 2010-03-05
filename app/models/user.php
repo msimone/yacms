@@ -91,6 +91,16 @@ class User extends AppModel
         )
     );
     
+    function beforeSave()
+    {
+        if (!empty($this->data[$this->name]['passwd']))
+        {
+            $this->data[$this->name]['password'] = Security::hash($this->data[$this->name]['passwd'], 'sha1', 1);
+        }
+        
+        return true;
+    }
+    
     function validateConfirmPasswd()
     {
         return $this->data['User']['passwd'] == $this->data['User']['passwd_confirm'];

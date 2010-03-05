@@ -33,12 +33,16 @@
     <script type="text/javascript" src="/js/clock.js"></script>
   </head>
   <body>
-    <?php if ($session->check('Auth.User')) { ?>
-      <div id="header">
-        <?=$this->element('backend/menu')?>
-      </div>
-    <?php } ?>
-    
+    <div id="header">
+        <?php if ($session->check('Auth.User')) { ?>
+            <?=$this->element('backend/menu')?>
+        <?php } ?>
+        <div id="i18n">
+            <?=$html->link($html->image('/img/shared/flags/eng.gif'), array('lang' => 'eng'), null, null, false)?>
+            <?=$html->link($html->image('/img/shared/flags/cat.gif'), array('lang' => 'cat'), null, null, false)?>
+            <?=$html->link($html->image('/img/shared/flags/spa.gif'), array('lang' => 'spa'), null, null, false)?>
+        </div>
+    </div>
     <div id="content">
         <?=$content_for_layout?>
         <div style="clear: both;"></div>

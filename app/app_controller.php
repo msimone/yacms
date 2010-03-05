@@ -5,10 +5,15 @@ class AppController extends Controller
     var $components = array('Auth');
     
     function beforeFilter()
-    {
+    {        
         $this->Auth->allow('display');
         
         $prefix = Configure::read('Routing.admin');
+        
+        if (isset($this->params['named']['lang']))
+        {
+            $this->Session->write('Config.language', $this->params['named']['lang']);
+        }
         
         if (!isset($this->params[$prefix]))
         {

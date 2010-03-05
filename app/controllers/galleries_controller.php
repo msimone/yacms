@@ -11,20 +11,26 @@ class GalleriesController extends AppController
 	$this->set('galleries', $this->paginate($this->modelClass));
     }
     
-    function backend_add()
+    function backend_add($id = null)
     {
-        if (!empty($this->data))
+	$this->Gallery->id = $id;
+	
+        if (empty($this->data))
+	{
+	    $this->data = $this->Gallery->read();
+	}
+	else
 	{
 	    if ($this->Gallery->save($this->data))
 	    {
 		$this->Session->setFlash(__('Gallery saved successfully.', 1), 'flash_success');
+		$this->redirect(array('action' => 'index'));
 	    }
             else
             {
                 $this->Session->setFlash(__('Unable to save gallery.', 1), 'flash_failed');
             }
             
-            $this->redirect(array('action' => 'index'));
 	}
 	
 	$this->paginate = array('limit' => 15);
@@ -33,34 +39,8 @@ class GalleriesController extends AppController
     
     function backend_edit($id = null)
     {
-	if ($id)
-        {
-            if (!empty($this->data))
-            {
-		pr($this->data);
-		exit();
-	    
-		$this->Gallery->id = $id;
-		
-		if ($this->Gallery->save($this->data))
-                {
-		    $this->Session->setFlash(__('Gallery saved successfully.', 1), 'flash_success');
-		}
-		else
-		{
-		    $this->Session->setFlash(__('Unable to save gallery.', 1), 'flash_failed');
-		}
-		
-		$this->redirect(array('action' => 'index'));
-	    }
-	    
-	    $this->data = $this->Gallery->findById($id);
-	}
-	
-	$this->paginate = array('limit' => 15);
-	$this->set('resources', $this->paginate('Resource'));
-	
-	$this->render('backend_add');
+	$this->backend_add($id);
+	$this->render('add');
     }
 	
     function backend_remove($id = null)

@@ -137,6 +137,22 @@ body
     -webkit-border-radius: 5px;
 }
 
+#i18n
+{
+    float: right;
+    text-align: center;
+}
+
+#i18n > a
+{
+    color: #FFFFFF;
+    padding: 0 5px 0 5px;
+}
+
+#i18n > a:hover
+{
+}
+
 #records
 {
     float: left;
