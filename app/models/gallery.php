@@ -3,6 +3,7 @@
 class Gallery extends AppModel
 {
     var $name = 'Gallery';
+    var $actsAs = array('Translate' => array('title' => 'titleTranslation'));
     
     var $hasMany = array
     (
@@ -11,11 +12,36 @@ class Gallery extends AppModel
             'className'  => 'Resource',
             'foreignKey' => 'parent_id',
         ),
-     );
+    );
     
-    function afterSave()
+    function find($type = null, $options = array())
     {
-        $this->saveField('slug', Inflector::slug($this->data[$this->name]['title'], '-') . '-' . $this->id, array('callbacks' => false));
+        switch ($type)
+        {
+            case "translate":
+                
+                $self = parent::find(null, $options);
+                
+                $self[$this->name]['title'] = array();
+                $self[$this->name]['content'] = array();
+                
+                foreach ($self['titleTranslation'] as $value)
+                {
+                    $self[$this->name]['title'][$value['locale']] = $value['content'];
+                }
+                
+                foreach ($self['contentTranslation'] as $value)
+                {
+                    $self[$this->name]['content'][$value['locale']] = $value['content'];
+                }
+            break;
+                
+	    default:
+                $self = parent::find($type, $options);
+            break;
+	}
+        
+        return $self;
     }
 }
 

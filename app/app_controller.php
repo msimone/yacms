@@ -8,28 +8,23 @@ class AppController extends Controller
     {        
         $this->Auth->allow('display');
         
-        $prefix = Configure::read('Routing.admin');
+        if (!isset($this->params[Configure::read('Routing.admin')]))
+        {
+            $this->layout = 'frontend';
+        }
+        else
+        {
+            $this->layout = 'backend';
+        }
         
         if (isset($this->params['named']['lang']))
         {
             $this->Session->write('Config.language', $this->params['named']['lang']);
         }
         
-        if (!isset($this->params[$prefix]))
+        if ($this->Session->check('Config.language'))
         {
-            $this->layout = 'frontend';
-            
-            $this->Auth->loginAction    = array($prefix => false, 'controller' => 'users', 'action' => 'login');
-            $this->Auth->loginRedirect  = array($prefix => false, 'controller' => 'pages', 'action' => 'display');
-            $this->Auth->logoutRedirect = array($prefix => false, 'controller' => 'users', 'action' => 'login');
-        }
-        else
-        {
-            $this->layout = 'backend';
-            
-            $this->Auth->loginAction    = array($prefix => true, 'controller' => 'users', 'action' => 'login');
-            $this->Auth->loginRedirect  = array($prefix => true, 'controller' => 'home',  'action' => 'index');
-            $this->Auth->logoutRedirect = array($prefix => true, 'controller' => 'users', 'action' => 'login');
+            Configure::write('Config.language', $this->Session->read('Config.language'));
         }
     }
 }

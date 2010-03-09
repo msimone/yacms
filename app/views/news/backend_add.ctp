@@ -2,27 +2,32 @@
 
 <?=$form->create('News', array('class' => 'model-add', 'url' => $html->url()))?>
 
-<?=$form->input('title', array('label' => __('Title', 1)))?>
-
-<div id="tabs">
+<div class="tabs">
     <ul>
-        <li><a href="#tab-1">Content</a></li>
-        <!--
-        <li><a href="#tab-2">Content 2</a></li>
-        <li><a href="#tab-3">Content 3</a></li>
-        -->
+        <?php foreach (Configure::read('Config.languages') as $idx => $value) { ?>
+            <li><a href="#title-<?=$idx?>"><?=__('Title in ' . $value, 1)?></a></li>
+        <?php } ?>
     </ul>
-    <div id="tab-1">
-        <?=$form->input('content', array('class' => 'wymeditor', 'label' => false))?>
-    </div>
-    <!--
-    <div id="tab-2">
-        <?=$form->input('content2', array('class' => 'wymeditor', 'label' => false))?>
-    </div>
-    <div id="tab-3">
-        <?=$form->input('content3', array('class' => 'wymeditor', 'label' => false))?>
-    </div>
-    -->
+    <?php foreach (Configure::read('Config.languages') as $idx => $value) { ?>
+        <div id="title-<?=$idx?>">
+            <?=$form->input('title.' . $value, array('label' => false))?>
+        </div>
+    <?php } ?>
+</div>
+
+<?=$form->input('slug', array('label' => __('Slug', 1)))?>
+
+<div class="tabs">
+    <ul>
+        <?php foreach (Configure::read('Config.languages') as $idx => $value) { ?>
+            <li><a href="#content-<?=$idx?>"><?=__('Content in ' . $value, 1)?></a></li>
+        <?php } ?>
+    </ul>
+    <?php foreach (Configure::read('Config.languages') as $idx => $value) { ?>
+        <div id="content-<?=$idx?>">
+            <?=$form->input('content.' . $value, array('class' => 'wymeditor', 'label' => false))?>
+        </div>
+    <?php } ?>
 </div>
 
 <?=$form->submit('Save', array('class' => 'wymupdate'))?>
@@ -38,7 +43,7 @@ $(function()
         skin: "compact"
     });
     
-    $('#tabs').tabs();
+    $('.tabs').tabs();
 });
 
 </script>

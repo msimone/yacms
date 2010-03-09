@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 23, 2010 at 04:59 PM
+-- Generation Time: Mar 08, 2010 at 04:09 PM
 -- Server version: 5.0.75
 -- PHP Version: 5.2.6-3ubuntu4.4
 
@@ -25,7 +25,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `acos`
 --
 
-DROP TABLE IF EXISTS `acos`;
 CREATE TABLE IF NOT EXISTS `acos` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parent_id` int(10) default NULL,
@@ -48,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `acos` (
 -- Table structure for table `aros`
 --
 
-DROP TABLE IF EXISTS `aros`;
 CREATE TABLE IF NOT EXISTS `aros` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parent_id` int(10) default NULL,
@@ -71,7 +69,6 @@ CREATE TABLE IF NOT EXISTS `aros` (
 -- Table structure for table `aros_acos`
 --
 
-DROP TABLE IF EXISTS `aros_acos`;
 CREATE TABLE IF NOT EXISTS `aros_acos` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `aro_id` int(10) unsigned NOT NULL,
@@ -91,10 +88,76 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `galleries`
+--
+
+CREATE TABLE IF NOT EXISTS `galleries` (
+  `id` int(11) NOT NULL auto_increment,
+  `active` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `galleries`
+--
+
+INSERT INTO `galleries` (`id`, `active`, `created`, `modified`, `title`, `slug`) VALUES
+(3, 0, '2010-03-03 11:55:54', '2010-03-03 15:55:59', 'a gallery foo', 'a-gallery-foo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `i18n`
+--
+
+CREATE TABLE IF NOT EXISTS `i18n` (
+  `id` int(10) NOT NULL auto_increment,
+  `locale` varchar(6) collate utf8_unicode_ci NOT NULL,
+  `model` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `foreign_key` int(10) NOT NULL,
+  `field` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `content` text collate utf8_unicode_ci,
+  PRIMARY KEY  (`id`),
+  KEY `locale` (`locale`),
+  KEY `model` (`model`),
+  KEY `row_id` (`foreign_key`),
+  KEY `field` (`field`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
+
+--
+-- Dumping data for table `i18n`
+--
+
+INSERT INTO `i18n` (`id`, `locale`, `model`, `foreign_key`, `field`, `content`) VALUES
+(1, 'eng', 'Page', 1, 'title', 'Home'),
+(2, 'cat', 'Page', 1, 'title', 'Homa'),
+(3, 'spa', 'Page', 1, 'title', 'Case'),
+(4, 'eng', 'Page', 1, 'content', '<p>this is the home page</p>'),
+(5, 'cat', 'Page', 1, 'content', '<p><span id="result_box" class="short_text">Aquesta Ã©s la pÃ gina d''inici</span></span></p>'),
+(6, 'spa', 'Page', 1, 'content', '<p>Esta es la pagina de inicio</p>'),
+(18, 'spa', 'News', 1, 'content', ''),
+(17, 'cat', 'News', 1, 'content', ''),
+(16, 'eng', 'News', 1, 'content', ''),
+(15, 'spa', 'News', 1, 'title', 'title in spa'),
+(14, 'cat', 'News', 1, 'title', 'title in cat'),
+(13, 'eng', 'News', 1, 'title', 'title in eng'),
+(19, 'eng', 'Page', 3, 'title', 'test'),
+(20, 'cat', 'Page', 3, 'title', 'testa'),
+(21, 'spa', 'Page', 3, 'title', 'prueba'),
+(22, 'eng', 'Page', 3, 'content', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque\r\naliquam tempor tortor, sit amet mattis leo tincidunt tempus. Praesent\r\nnec erat nec orci porta blandit. Fusce non eros libero, vitae malesuada\r\nleo. Nam auctor libero id leo mollis id aliquam enim vestibulum.\r\nVivamus metus quam, semper vitae euismod id, pulvinar at mi. Aenean\r\ntincidunt orci id lectus dignissim vitae fringilla lorem varius. Proin\r\nnunc ligula, semper a molestie nec, volutpat eget mi. Praesent dapibus\r\nmalesuada ligula, at laoreet est lobortis et. Nam rutrum velit sed ante\r\nvehicula bibendum. Mauris convallis porttitor molestie. Nunc fringilla\r\nfacilisis mi, non consequat ante mollis vel.\r\n</p>'),
+(23, 'cat', 'Page', 3, 'content', '<p>Duis ut risus velit. Sed placerat magna et felis porta volutpat\r\nhendrerit est facilisis. Cras pulvinar viverra augue at rhoncus.\r\nSuspendisse scelerisque massa fermentum eros vulputate tincidunt sit\r\namet vel est. Cras metus magna, porta vel facilisis sed, aliquam a\r\nnibh. Nulla sed pellentesque eros. Cras volutpat lacus sed ante\r\nlobortis egestas. Fusce aliquet scelerisque libero, id egestas lorem\r\nsagittis a. Duis quis diam nec eros auctor ornare non vel felis. Nulla\r\nfacilisi. Vivamus suscipit cursus volutpat.\r\n</p>'),
+(24, 'spa', 'Page', 3, 'content', '<p>Fusce sed massa magna, ac lobortis tellus. Morbi quis nulla dolor, quis\r\npretium urna. Suspendisse et dui in turpis fermentum tincidunt sit amet\r\nsed libero. Nullam sollicitudin, metus non volutpat commodo, neque\r\nneque fermentum diam, et tincidunt lacus ligula eget eros. Sed laoreet\r\ncongue luctus. Ut consectetur tellus at mauris pulvinar auctor. Vivamus\r\npretium arcu eget elit varius auctor. Curabitur malesuada faucibus\r\npellentesque. Morbi ut leo magna. Vivamus tincidunt rhoncus\r\nscelerisque. Donec mi dui, adipiscing tristique viverra eu, convallis\r\nsed lacus. Quisque rutrum, lorem id varius pretium, urna erat tempus\r\nelit, vitae vulputate felis ante sed odio. In purus lectus, eleifend\r\neget iaculis sed, eleifend et odio. Vivamus venenatis feugiat turpis,\r\nat fringilla lacus dignissim ut. Mauris imperdiet turpis eget nisi\r\naliquam lobortis.\r\n</p>');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `news`
 --
 
-DROP TABLE IF EXISTS `news`;
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int(11) NOT NULL auto_increment,
   `active` tinyint(1) NOT NULL,
@@ -104,15 +167,14 @@ CREATE TABLE IF NOT EXISTS `news` (
   `slug` varchar(255) NOT NULL,
   `content` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `active`, `created`, `modified`, `title`, `slug`, `content`) VALUES
-(1, 0, '2010-01-26 12:39:51', '2010-02-22 10:01:03', 'a page 123', 'foobar', 'asdasda sla slda lsdalsd lalsd lasdl alsdlasld alsdlalsd lasdlasl dalsdlalsdasd'),
-(2, 0, '2010-01-28 09:18:48', '2010-01-28 09:18:48', 'foobar 2', 'foobarz', 'sdfsdfsdfsdfsdfsdfdsdfsdfsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd');
+(1, 0, '2010-03-08 12:49:10', '2010-03-08 12:49:10', 'title in eng', 'title_in_eng_1', '');
 
 -- --------------------------------------------------------
 
@@ -120,7 +182,6 @@ INSERT INTO `news` (`id`, `active`, `created`, `modified`, `title`, `slug`, `con
 -- Table structure for table `pages`
 --
 
-DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL auto_increment,
   `lft` int(11) NOT NULL,
@@ -134,18 +195,15 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `slug` varchar(255) NOT NULL,
   `content` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `lft`, `rght`, `order`, `active`, `created`, `modified`, `parent_id`, `title`, `slug`, `content`) VALUES
-(29, 1, 2, 0, 0, '2010-02-23 11:58:00', '2010-02-23 16:45:13', 0, 'TEST PAGE 1', 'TEST-PAGE-1', '<p>asdasdasda asda asd asd asd asda sd asd</p>'),
-(30, 5, 6, 1, 0, '2010-02-23 11:58:04', '2010-02-23 16:45:13', 0, 'TEST PAGE 2', 'TEST-PAGE-2', 'asdasdasda asda asd asd asd asda sd asd'),
-(31, 3, 4, 2, 0, '2010-02-23 11:58:10', '2010-02-23 16:45:13', 0, 'TEST PAGE 3', 'TEST-PAGE-3', 'asdasdasda asda asd asd asd asda sd asd'),
-(32, 7, 8, 3, 0, '2010-02-23 11:58:15', '2010-02-23 16:45:13', 0, 'TEST PAGE 4', 'TEST-PAGE-4', 'asdasdasda asda asd asd asd asda sd asd'),
-(33, 9, 10, 4, 0, '2010-02-23 11:58:19', '2010-02-23 16:45:13', 0, 'TEST PAGE 5', 'TEST-PAGE-5', 'asdasdasda asda asd asd asd asda sd asd');
+(1, 1, 2, 0, 0, '2010-03-08 10:14:55', '2010-03-08 16:04:58', 0, 'Home', 'home', '<p>this is the home page</p>'),
+(3, 3, 4, 0, 0, '2010-03-08 15:59:45', '2010-03-08 16:08:32', 0, 'testa', 'test', '<p>Duis ut risus velit. Sed placerat magna et felis porta volutpat\r\nhendrerit est facilisis. Cras pulvinar viverra augue at rhoncus.\r\nSuspendisse scelerisque massa fermentum eros vulputate tincidunt sit\r\namet vel est. Cras metus magna, porta vel facilisis sed, aliquam a\r\nnibh. Nulla sed pellentesque eros. Cras volutpat lacus sed ante\r\nlobortis egestas. Fusce aliquet scelerisque libero, id egestas lorem\r\nsagittis a. Duis quis diam nec eros auctor ornare non vel felis. Nulla\r\nfacilisi. Vivamus suscipit cursus volutpat.\r\n</p>');
 
 -- --------------------------------------------------------
 
@@ -153,17 +211,17 @@ INSERT INTO `pages` (`id`, `lft`, `rght`, `order`, `active`, `created`, `modifie
 -- Table structure for table `resources`
 --
 
-DROP TABLE IF EXISTS `resources`;
 CREATE TABLE IF NOT EXISTS `resources` (
   `id` int(11) NOT NULL auto_increment,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
+  `parent_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `size` int(11) NOT NULL,
   `path` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `resources`
@@ -176,7 +234,6 @@ CREATE TABLE IF NOT EXISTS `resources` (
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL auto_increment,
   `active` tinyint(1) NOT NULL,
@@ -197,19 +254,4 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `active`, `created`, `modified`, `username`, `password`, `email`, `first_name`, `last_name`, `telephone_home`, `telephone_work`) VALUES
-(10, 1, '2010-01-18 13:17:11', '2010-02-04 10:05:45', 'nullz', '02f2bb14b7736bf5079c1d49ce88be309e3dbb85', 'undefined.behaviour@gmail.com', 'Marianossss', 'Simone', '', ''),
-(14, 1, '2010-01-18 13:17:12', '2010-02-01 15:31:47', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(15, 1, '2010-01-18 13:17:13', '2010-02-01 15:31:50', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(16, 1, '2010-01-18 13:17:13', '2010-02-01 15:31:51', 'admin', 'edb8c3b343fc1f38b05dbcb0f46c92cf6745e6a1', '', 'Mariano', 'Simone', '', ''),
-(17, 1, '2010-01-18 13:17:13', '2010-02-01 15:31:51', 'admin', 'edb8c3b343fc1f38b05dbcb0f46c92cf6745e6a1', '', 'Mariano', 'Simone', '', ''),
-(20, 1, '2010-01-18 13:17:14', '2010-01-27 10:46:51', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(22, 1, '2010-01-18 13:17:14', '2010-01-27 10:46:50', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(23, 1, '2010-01-18 13:17:14', '2010-01-27 10:46:50', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(24, 1, '2010-01-18 13:17:14', '2010-01-27 10:46:49', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(25, 1, '2010-01-18 13:17:15', '2010-01-27 10:46:49', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(26, 1, '2010-01-18 13:17:15', '2010-01-27 10:46:49', 'admin', 'edb8c3b343fc1f38b05dbcb0f46c92cf6745e6a1', '', 'Mariano', 'Simone', '', ''),
-(27, 1, '2010-01-18 13:17:15', '2010-01-25 15:49:33', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(28, 1, '2010-01-18 13:17:15', '2010-01-27 12:14:08', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(29, 1, '2010-01-18 13:17:15', '2010-01-18 13:17:15', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(30, 1, '2010-01-18 13:17:16', '2010-01-25 11:41:03', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', ''),
-(31, 1, '2010-01-18 13:17:16', '2010-01-25 11:41:03', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', '', 'Mariano', 'Simone', '', '');
+(31, 1, '2010-01-18 13:17:16', '2010-03-05 16:49:18', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', 'undefined.behaviour@gmail.com', 'Mariano', 'Simone', '', '');

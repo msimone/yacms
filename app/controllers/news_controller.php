@@ -13,13 +13,7 @@ class NewsController extends AppController
     
     function backend_add($id = null)
     {
-	$this->News->id = $id;
-	
-        if (empty($this->data))
-	{
-	    $this->data = $this->News->read();
-	}
-	else
+	if (!empty($this->data))
 	{
 	    if ($this->News->save($this->data))
 	    {
@@ -30,12 +24,29 @@ class NewsController extends AppController
             {
 		$this->Session->setFlash(__('Unable to save news.', 1), 'flash_failed');
             }
-	    
 	}
     }
     function backend_edit($id = null)
     {
-	$this->backend_add($id);
+	$this->News->id = $id;
+	
+        if (!empty($this->data))
+	{
+	    if ($this->News->save($this->data))
+	    {
+                $this->Session->setFlash(__('News saved successfully.', 1), 'flash_success');
+		$this->redirect(array('action' => 'index'));
+	    }
+            else
+            {
+		$this->Session->setFlash(__('Unable to save news.', 1), 'flash_failed');
+            }
+	}
+	else if ($id)
+	{
+	    $this->data = $this->News->find('translate');
+	}
+	
 	$this->render('backend_add');
     }
     

@@ -12,15 +12,9 @@ class PagesController extends AppController
 	$this->set('pages', $pages);
     }
     
-    function backend_add($id = null)
+    function backend_add()
     {
-	$this->Page->id = $id;
-	
-	if (empty($this->data))
-	{
-	    $this->data = $this->Page->read();
-	}
-	else
+	if (!empty($this->data))
 	{
 	    if ($this->Page->save($this->data))
 	    {
@@ -36,23 +30,40 @@ class PagesController extends AppController
     
     function backend_edit($id = null)
     {
-	$this->backend_add($id);
+	$this->Page->id = $id;
+	
+	if (!empty($this->data))
+	{
+	    if ($this->Page->save($this->data))
+	    {
+		$this->Session->setFlash(__('Page saved successfully.', 1), 'flash_success');
+		$this->redirect(array('action' => 'index'));
+	    }
+	    else
+            {
+		$this->Session->setFlash(__('Unable to save page.', 1), 'flash_failed');
+            }
+	}
+	else if ($id)
+	{
+	    $this->data = $this->Page->find('translate');
+	}
+	
 	$this->render('backend_add');
     }
     
     function backend_remove($id = null)
     {
-	if ($id)
+	$this->Page->id = $id;
+	
+	if ($this->Page->remove())
 	{
-	    if ($this->Page->remove($id))
-            {
-                $this->Session->setFlash(__('Page removed successfully.', 1), 'flash_success');
-            }
-	    else
-            {
-                $this->Session->setFlash(__('Unable to remove page.', 1), 'flash_failed');
-            }
-        }
+	    $this->Session->setFlash(__('Page removed successfully.', 1), 'flash_success');
+	}
+	else
+	{
+	    $this->Session->setFlash(__('Unable to remove page.', 1), 'flash_failed');
+	}
 	
 	$this->redirect(array('action' => 'index'));
     }
@@ -86,7 +97,20 @@ class PagesController extends AppController
 	    //error 404
 	}
 	
-	$this->render('templates/1');
+	switch ($self[$this->modelClass]['template'])
+	{
+	    case 0:
+		$this->render('templates/home');
+		break;
+	    
+	    case 1:
+		$this->render('templates/page');
+		break;
+	    
+	    case 2:
+		$this->render('templates/gallery');
+		break;
+	}
     }
 }
 

@@ -146,7 +146,7 @@ body
 #i18n > a
 {
     color: #FFFFFF;
-    padding: 0 5px 0 5px;
+    margin: 0px 10px;
 }
 
 #i18n > a:hover

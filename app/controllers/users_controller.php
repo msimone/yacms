@@ -11,15 +11,9 @@ class UsersController extends AppController
         $this->set('users', $this->paginate($this->modelClass));
     }
     
-    function backend_add($id = null)
+    function backend_add()
     {
-        $this->User->id = $id;
-        
-        if (empty($this->data))
-        {
-            $this->data = $this->User->read();
-        }
-        else
+        if (!empty($this->data))
         {
             if ($this->User->save($this->data))
             {
@@ -35,7 +29,25 @@ class UsersController extends AppController
     
     function backend_edit($id = null)
     {
-        $this->backend_add($id);
+        $this->User->id = $id;
+        
+        if (!empty($this->data))
+        {
+            if ($this->User->save($this->data))
+            {
+                $this->Session->setFlash(__('User saved successfully.', 1), 'flash_success');
+                $this->redirect(array('action' => 'index'));
+            }
+            else
+            {
+                $this->Session->setFlash(__('Unable to save user.', 1), 'flash_failed');
+            }
+        }
+        else if($id)
+        {
+            $this->data = $this->User->find();
+        }
+        
         $this->render('backend_add');
     }
     
