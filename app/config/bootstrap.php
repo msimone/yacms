@@ -41,4 +41,10 @@
  *
  */
 //EOF
+    
+    Configure::write('Backend.resourceDirectory', 'res');
+    
+    Configure::write('Config.language', 'eng');
+    Configure::write('Config.languages', array('eng', 'cat', 'spa'));
+
 ?>

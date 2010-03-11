@@ -57,7 +57,6 @@ body
 #footer
 {
     width: 960px;
-    padding: 5px;
     margin: 0 auto;
     color: #FFFFFF;
     font-size: 10px;
@@ -137,22 +136,6 @@ body
     -webkit-border-radius: 5px;
 }
 
-#i18n
-{
-    float: right;
-    text-align: center;
-}
-
-#i18n > a
-{
-    color: #FFFFFF;
-    margin: 0px 10px;
-}
-
-#i18n > a:hover
-{
-}
-
 #records
 {
     float: left;
@@ -163,6 +146,17 @@ body
 {
     float: right;
     width: 36.1%;
+}
+
+#i18n
+{
+    float: right;
+    margin: 0 15px 0 0;
+}
+
+#i18n > a
+{
+    color: #FFFFFF;
 }
 
 a.add

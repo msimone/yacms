@@ -229,9 +229,4 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
-	
-	Configure::write('Config.language', 'eng');
-	Configure::write('Config.languages', array('eng', 'cat', 'spa'));
-		
-	Configure::write('Backend.resource_dir', 'res');
 ?>

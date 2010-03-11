@@ -38,9 +38,9 @@
             <?=$this->element('backend/menu')?>
         <?php } ?>
         <div id="i18n">
-            <?=$html->link($html->image('/img/shared/flags/eng.gif'), array('lang' => 'eng'), null, null, false)?>
-            <?=$html->link($html->image('/img/shared/flags/cat.gif'), array('lang' => 'cat'), null, null, false)?>
-            <?=$html->link($html->image('/img/shared/flags/spa.gif'), array('lang' => 'spa'), null, null, false)?>
+            <?=$html->link('en', array('controller' => 'languages', 'action' => 'change', 'eng', 'backend' => false), null, null, false)?>
+            <?=$html->link('ca', array('controller' => 'languages', 'action' => 'change', 'cat', 'backend' => false), null, null, false)?>
+            <?=$html->link('es', array('controller' => 'languages', 'action' => 'change', 'spa', 'backend' => false), null, null, false)?>
         </div>
     </div>
     <div id="content">
@@ -49,7 +49,9 @@
     </div>
     
     <div id="footer">
-      By Dragonfly Consulting - Copyright <?=date('Y')?>
+        <span id="copyright">
+            By Dragonfly Consulting - Copyright <?=date('Y')?>
+        </span>
     </div>
     
     <script type="text/javascript">
