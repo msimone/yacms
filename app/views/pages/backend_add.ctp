@@ -17,7 +17,19 @@
 
 <?=$form->input('slug', array('label' => __('Slug', 1)))?>
 
-<?=$form->input('template', array('label' => __('Template', 1), 'type' => 'select', 'options' => array('0' => 'Home', '1' => 'Page', '2' => 'Gallery')))?>
+<?=$form->input('template', array('label' => __('Template', 1), 'type' => 'select', 'options' => array('0' => 'Home', '1' => 'Page', '2' => 'Page with gallery')))?>
+
+<div class="input checkbox">
+    <label for="PageShowMenuTop">Show in menu</label>
+    <div>
+        <?=$form->checkbox('show_menu_top', array('label' => __('Top', 1)))?>
+        <?=$form->label('show_menu_top', 'Top')?>
+    </div>
+    <div>
+        <?=$form->checkbox('show_menu_bottom', array('label' => __('Top', 1)))?>
+        <?=$form->label('show_menu_bottom', 'Bottom')?>
+    </div>
+</div>
 
 <div class="tabs">
     <ul>

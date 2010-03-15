@@ -3,7 +3,14 @@
 class NewsController extends AppController
 {
     var $name = 'News';
-    var $uses = array('News');
+    var $helpers = array('Tree');
+    var $uses = array('News', 'Page');
+    
+    function beforeFilter()
+    {
+	parent::beforeFilter();
+	$this->Auth->allow('display');
+    }
     
     function backend_index()
     {
@@ -69,13 +76,22 @@ class NewsController extends AppController
     
     function display($slug = null)
     {
-	if (!$slug)
+	$menu_top_pages = $this->Page->find('threaded');
+	$this->set('menu_top_pages', $menu_top_pages);
+	
+	//$menu_bottom_pages = $this->Page->find('threaded');
+	//$this->set('menu_bottom_pages', $menu_bottom_pages);
+	
+	$self = $this->News->find('first', array('conditions' => array('slug' => $slug)));
+	$this->set('self', $self);
+	
+	if ($slug)
 	{
-	    $this->render('templates/index');
+	    $this->render('templates/news');
 	}
 	else
 	{
-	    $this->render('templates/news');
+	    $this->render('templates/index');
 	}
     }
 }

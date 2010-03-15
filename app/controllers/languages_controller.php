@@ -5,6 +5,12 @@ class LanguagesController extends AppController
     var $name = 'Languages';
     var $uses = array();
     
+    function beforeFilter()
+    {
+	parent::beforeFilter();
+	$this->Auth->allow('change');
+    }
+    
     function change($language = null)
     {
 	if ($language)

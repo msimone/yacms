@@ -84,7 +84,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'asd098',
-		'database' => 'cms',
+		'database' => 'yacms',
 		'prefix' => '',
 	);
 	

@@ -3,8 +3,14 @@
 class PagesController extends AppController
 {
     var $name = 'Pages';
-    var $uses = array('Page', 'News');
     var $helpers = array('Tree');
+    var $uses = array('Page', 'News');
+    
+    function beforeFilter()
+    {
+	parent::beforeFilter();
+	$this->Auth->allow('display');
+    }
     
     function backend_index()
     {
@@ -80,16 +86,16 @@ class PagesController extends AppController
     
     function display($slug = 'home')
     {
-	$menu_top_pages = $this->Page->find('threaded');
+	$menu_top_pages = $this->Page->find('threaded', array('conditions' => array('show_menu_top' => '1')));
 	$this->set('menu_top_pages', $menu_top_pages);
 	
-	//$menu_bottom_pages = $this->Page->find('threaded');
-	//$this->set('menu_bottom_pages', $menu_bottom_pages);
+	$menu_bottom_pages = $this->Page->find('threaded', array('conditions' => array('show_menu_bottom' => '1')));
+	$this->set('menu_bottom_pages', $menu_bottom_pages);
 	
 	$news = $this->News->find('all', array('conditions' => array(), 'limit' => '3'));
 	$this->set('news', $news);
 	
-	$self = $this->Page->find('first', array('conditions' => array('Page.slug' => $slug)));
+	$self = $this->Page->find('first', array('conditions' => array('slug' => $slug)));
 	$this->set('self', $self);
 	
 	if (empty($self))

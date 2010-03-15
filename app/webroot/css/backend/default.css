@@ -56,6 +56,7 @@ body
 
 #footer
 {
+    height: 50px;
     width: 960px;
     margin: 0 auto;
     color: #FFFFFF;
@@ -151,12 +152,21 @@ body
 #i18n
 {
     float: right;
-    margin: 0 15px 0 0;
+    margin: 5px 0 0 0;
 }
 
 #i18n > a
 {
-    color: #FFFFFF;
+    float: left;
+    width: 16px;
+    height: 11px;
+    display: block;
+    margin: 0 0 0 5px;
+}
+
+#i18n > a:first-child
+{
+    margin: 0;
 }
 
 a.add

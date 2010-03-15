@@ -76,19 +76,12 @@
 
 
 
-
-
-
-
-
-
-
-
 .model-add .input
 {
-    margin-top: 15px;
     overflow: hidden;
+    margin: 0 0 15px 0;
 }
+
 
 .model-add .submit
 {
@@ -99,6 +92,13 @@
 
 .model-add .input.text label,
 .model-add .input.select label
+{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.model-add .input.checkbox > label
 {
     display: block;
     font-weight: bold;
@@ -142,13 +142,10 @@
     border-bottom: 1px dotted #000000;
 }
 
-.model-add #authMessage
-{
-    color: #FF0000;
-    font-size: 13px;
-    margin-top: 25px;
-    text-align: center;
-}
+
+
+
+
 
 .login-form
 {

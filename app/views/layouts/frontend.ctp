@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title><?=$self['Page']['title']?></title>
+    <title></title>
     <link href="/css/frontend/estilos.css" rel="stylesheet" type="text/css" />
     <!--[if gte IE 8]>
     <link rel="stylesheet" type="text/css" href="/css/frontend/ie.css" />
@@ -41,51 +41,33 @@
 	
 		<div id="cabecera">
 			<div id="logo">
-				<a href="index.html"><img src="img/frontend/logo.jpg" width="244" height="84" alt="Parc de Collserola" /></a>
+				<a href="index.html"><img src="/img/frontend/logo.jpg" width="244" height="84" alt="Parc de Collserola" /></a>
 			</div><!--Fin logo-->
 			
 			<div class="cab_derecha">
 				<div id="menuCabecera">
-				  <ul class="menuArriba menuArriba-horizontal">
-						<li><a href="#"><img src="img/frontend/puntoVerde.png" width="7" height="7" alt="Punto" />PUBLICACIONS</a></li>
-						<li><a href="#"><img src="img/frontend/puntoVerde.png" width="7" height="7" alt="Punto" />DOCUMENTACIÓ</a></li>
-						<li><a href="#"><img src="img/frontend/puntoVerde.png" width="7" height="7" alt="Punto" />GALERIES DE VIDEOS</a></li>
-						<li><a href="#" class="dir"><img src="img/frontend/puntoVerde.png" width="7" height="7" alt="Punto" />PERFIL DEL CONTRACTANT</a>
-							<ul>
-								<li><a href="#"><span class="dir">A PEU</span></a></li>
-								<li><span class="dir">EN BICICLETA</span>
-									<ul>
-										<li class="first"><a href="#">DE CERDANYOLA A BCN PER LA VALL DE SANT ISCLE</a></li>
-										<li><a href="#">DE SANT CUGAT A CERDANYOLA</a></li>
-										<li><a href="#">PASSEIG DE LES AIGÜES</a></li>
-									</ul>
-								</li>
-								<li><a href="#"><span class="dir">A CABALL</span></a></li>
-							</ul>
-						</li>
-						<li><a href="#"><img src="img/frontend/puntoVerde.png" width="7" height="7" alt="Punto" />MEMORIES ANUALS</a></li>
-						<li><a href="#"><img src="img/frontend/puntoVerde.png" width="7" height="7" alt="Punto" />ACCÉS INTRANET</a></li>
-					</ul>
+				   <?=$tree->generate($menu_top_pages, array('class' => 'menuArriba menuArriba-horizontal', 'element' => 'frontend/menu-top'))?> 
 				</div><!--Fin menuCabecera-->
 				
 				<div id="buscador">
 					<span><input type="text" name="buscador" value="cercar" tabindex="1" class="textinput" /></span>
-					<span><a href="#"><img src="img/frontend/lupa.png" width="13" height="13" alt="Buscador" /></a></span><br/>
-					<span><img src="img/frontend/line_search.png" width="145" height="4" alt="Buscador" /></span>
+					<span><a href="#"><img src="/img/frontend/lupa.png" width="13" height="13" alt="Buscador" /></a></span><br/>
+					<span><img src="/img/frontend/line_search.png" width="145" height="4" alt="Buscador" /></span>
 				</div><!--Fin buscador-->
 			</div>
 		</div><!--Fin cabecera-->
 		
 		<div id="menu">
-		  <?=$tree->generate($menu_top_pages, array('id' => 'nav', 'class' => 'dropdown dropdown-horizontal', 'element' => 'frontend/menu-top'))?>
+		  <?=$tree->generate($menu_bottom_pages, array('id' => 'nav', 'class' => 'dropdown dropdown-horizontal', 'element' => 'frontend/menu-bottom'))?>
 		</div><!--Fin menu-->
 		
 		<div id="contenedor">		
 			<div id="menuIdiomas">
 				<ul>
-					<li><a href="#" style="text-decoration:underline"><span>CATALÀ</span></a></li>
-					<li><a href="#"><span>ESPAÑOL</span></a></li>
-					<li><a href="#"><span>ENGLISH</span></a></li>
+				    <?php $lang = Configure::read('Config.language'); ?>
+				    <li><a href="/language/change/cat" <?=$lang == 'cat' ? 'style="text-decoration:underline"' : ''?>><span>CATALÀ</span></a></li>
+				    <li><a href="/language/change/spa" <?=$lang == 'spa' ? 'style="text-decoration:underline"' : ''?>><span>ESPAÑOL</span></a></li>
+				    <li><a href="/language/change/eng" <?=$lang == 'eng' ? 'style="text-decoration:underline"' : ''?>><span>ENGLISH</span></a></li>
 				</ul>
 			</div><!--Fin menuIdiomas-->
 			
@@ -95,8 +77,8 @@
 		
 		<div id="pie">
 			<p class="izquierda" style="margin-top:15px;">CONSORCI DEL PARC DE COLLSEROLA. CRTA. DE L'ESGLESIA, 92. 08017 BARCELONA</p>
-			<p class="izquierda"><img src="img/frontend/diputacion.jpg" width="91" height="32" alt="Diputacion" />
-			<img src="img/frontend/metro.jpg" width="157" height="30" alt="Metro" /></p>
+			<p class="izquierda"><img src="/img/frontend/diputacion.jpg" width="91" height="32" alt="Diputacion" />
+			<img src="/img/frontend/metro.jpg" width="157" height="30" alt="Metro" /></p>
 			<p class="linea derecha"><a href="#"><span>MAPA WEB</span></a><a href="#"><span>CONTACTO</span></a><a href="#"><span>AVISOS LEGALES</span></a></p>
 		</div><!--Fin pie-->
 	</div><!--Fin contenido-->

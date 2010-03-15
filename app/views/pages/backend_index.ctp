@@ -18,7 +18,7 @@ $(function()
         helperclass: 'helper',
         onChange: function(serialized)
         {
-            jQuery.get('/cms/pages/sort', serialized[0]['hash']);
+            jQuery.get('<?=$html->url(array('action' => 'sort'))?>', serialized[0]['hash']);
         },
     });
 });

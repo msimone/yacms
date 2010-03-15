@@ -17,6 +17,13 @@
     <link rel="stylesheet" type="text/css" href="/css/backend/default.css" />
     <link rel="stylesheet" type="text/css" href="/css/backend/jquery-ui.css" />
     
+    <?php echo $html->css(array('reset',
+                                'backend/forms',
+                                'backend/lists',
+                                'backend/tables',
+                                'backend/default',
+                                'backend/jquery-ui')); ?>
+    
     <script type="text/javascript" src="/js/jquery-1.4.min.js">
     </script>
     
@@ -37,21 +44,17 @@
         <?php if ($session->check('Auth.User')) { ?>
             <?=$this->element('backend/menu')?>
         <?php } ?>
-        <div id="i18n">
-            <?=$html->link('en', array('controller' => 'languages', 'action' => 'change', 'eng', 'backend' => false), null, null, false)?>
-            <?=$html->link('ca', array('controller' => 'languages', 'action' => 'change', 'cat', 'backend' => false), null, null, false)?>
-            <?=$html->link('es', array('controller' => 'languages', 'action' => 'change', 'spa', 'backend' => false), null, null, false)?>
-        </div>
     </div>
     <div id="content">
         <?=$content_for_layout?>
         <div style="clear: both;"></div>
     </div>
-    
     <div id="footer">
-        <span id="copyright">
-            By Dragonfly Consulting - Copyright <?=date('Y')?>
-        </span>
+        <div id="i18n">
+            <?=$html->link(null, array('controller' => 'languages', 'action' => 'change', 'eng', 'backend' => false), array('style' => 'background-image: url("/img/shared/flags/eng.gif")'), null, false)?>
+            <?=$html->link(null, array('controller' => 'languages', 'action' => 'change', 'cat', 'backend' => false), array('style' => 'background-image: url("/img/shared/flags/cat.gif")'), null, false)?>
+            <?=$html->link(null, array('controller' => 'languages', 'action' => 'change', 'spa', 'backend' => false), array('style' => 'background-image: url("/img/shared/flags/spa.gif")'), null, false)?>
+        </div>
     </div>
     
     <script type="text/javascript">
