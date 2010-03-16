@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.3
+-- version 3.2.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 08, 2010 at 04:09 PM
--- Server version: 5.0.75
--- PHP Version: 5.2.6-3ubuntu4.4
+-- Generation Time: Mar 15, 2010 at 10:24 PM
+-- Server version: 5.1.41
+-- PHP Version: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `cms`
+-- Database: `yacms`
 --
 
 -- --------------------------------------------------------
@@ -26,14 +26,14 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `acos` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `parent_id` int(10) default NULL,
-  `model` varchar(255) default '',
-  `foreign_key` int(10) unsigned default NULL,
-  `alias` varchar(255) default '',
-  `lft` int(10) default NULL,
-  `rght` int(10) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `model` varchar(255) DEFAULT '',
+  `foreign_key` int(10) unsigned DEFAULT NULL,
+  `alias` varchar(255) DEFAULT '',
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -48,14 +48,14 @@ CREATE TABLE IF NOT EXISTS `acos` (
 --
 
 CREATE TABLE IF NOT EXISTS `aros` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `parent_id` int(10) default NULL,
-  `model` varchar(255) default '',
-  `foreign_key` int(10) unsigned default NULL,
-  `alias` varchar(255) default '',
-  `lft` int(10) default NULL,
-  `rght` int(10) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `model` varchar(255) DEFAULT '',
+  `foreign_key` int(10) unsigned DEFAULT NULL,
+  `alias` varchar(255) DEFAULT '',
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -70,14 +70,14 @@ CREATE TABLE IF NOT EXISTS `aros` (
 --
 
 CREATE TABLE IF NOT EXISTS `aros_acos` (
-  `id` int(10) unsigned NOT NULL auto_increment,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `aro_id` int(10) unsigned NOT NULL,
   `aco_id` int(10) unsigned NOT NULL,
-  `_create` char(2) NOT NULL default '0',
-  `_read` char(2) NOT NULL default '0',
-  `_update` char(2) NOT NULL default '0',
-  `_delete` char(2) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
+  `_create` char(2) NOT NULL DEFAULT '0',
+  `_read` char(2) NOT NULL DEFAULT '0',
+  `_update` char(2) NOT NULL DEFAULT '0',
+  `_delete` char(2) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -92,13 +92,13 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
 --
 
 CREATE TABLE IF NOT EXISTS `galleries` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
@@ -115,18 +115,18 @@ INSERT INTO `galleries` (`id`, `active`, `created`, `modified`, `title`, `slug`)
 --
 
 CREATE TABLE IF NOT EXISTS `i18n` (
-  `id` int(10) NOT NULL auto_increment,
-  `locale` varchar(6) collate utf8_unicode_ci NOT NULL,
-  `model` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `locale` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `model` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `foreign_key` int(10) NOT NULL,
-  `field` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `content` text collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`),
+  `field` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
   KEY `locale` (`locale`),
   KEY `model` (`model`),
   KEY `row_id` (`foreign_key`),
   KEY `field` (`field`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `i18n`
@@ -135,22 +135,28 @@ CREATE TABLE IF NOT EXISTS `i18n` (
 INSERT INTO `i18n` (`id`, `locale`, `model`, `foreign_key`, `field`, `content`) VALUES
 (1, 'eng', 'Page', 1, 'title', 'Home'),
 (2, 'cat', 'Page', 1, 'title', 'Homa'),
-(3, 'spa', 'Page', 1, 'title', 'Case'),
+(3, 'spa', 'Page', 1, 'title', 'Casa'),
 (4, 'eng', 'Page', 1, 'content', '<p>this is the home page</p>'),
-(5, 'cat', 'Page', 1, 'content', '<p><span id="result_box" class="short_text">Aquesta Ã©s la pÃ gina d''inici</span></span></p>'),
+(5, 'cat', 'Page', 1, 'content', '<p><span id="result_box" class="short_text">Aquesta Ã©s la pÃ gina d''inici</span></p>'),
 (6, 'spa', 'Page', 1, 'content', '<p>Esta es la pagina de inicio</p>'),
-(18, 'spa', 'News', 1, 'content', ''),
-(17, 'cat', 'News', 1, 'content', ''),
-(16, 'eng', 'News', 1, 'content', ''),
+(18, 'spa', 'News', 1, 'content', '<p>The content in spanish</p>'),
+(17, 'cat', 'News', 1, 'content', '<p>The content in catalan</p>'),
+(16, 'eng', 'News', 1, 'content', '<p>The content in english</p>'),
 (15, 'spa', 'News', 1, 'title', 'title in spa'),
 (14, 'cat', 'News', 1, 'title', 'title in cat'),
 (13, 'eng', 'News', 1, 'title', 'title in eng'),
 (19, 'eng', 'Page', 3, 'title', 'test'),
 (20, 'cat', 'Page', 3, 'title', 'testa'),
 (21, 'spa', 'Page', 3, 'title', 'prueba'),
-(22, 'eng', 'Page', 3, 'content', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque\r\naliquam tempor tortor, sit amet mattis leo tincidunt tempus. Praesent\r\nnec erat nec orci porta blandit. Fusce non eros libero, vitae malesuada\r\nleo. Nam auctor libero id leo mollis id aliquam enim vestibulum.\r\nVivamus metus quam, semper vitae euismod id, pulvinar at mi. Aenean\r\ntincidunt orci id lectus dignissim vitae fringilla lorem varius. Proin\r\nnunc ligula, semper a molestie nec, volutpat eget mi. Praesent dapibus\r\nmalesuada ligula, at laoreet est lobortis et. Nam rutrum velit sed ante\r\nvehicula bibendum. Mauris convallis porttitor molestie. Nunc fringilla\r\nfacilisis mi, non consequat ante mollis vel.\r\n</p>'),
-(23, 'cat', 'Page', 3, 'content', '<p>Duis ut risus velit. Sed placerat magna et felis porta volutpat\r\nhendrerit est facilisis. Cras pulvinar viverra augue at rhoncus.\r\nSuspendisse scelerisque massa fermentum eros vulputate tincidunt sit\r\namet vel est. Cras metus magna, porta vel facilisis sed, aliquam a\r\nnibh. Nulla sed pellentesque eros. Cras volutpat lacus sed ante\r\nlobortis egestas. Fusce aliquet scelerisque libero, id egestas lorem\r\nsagittis a. Duis quis diam nec eros auctor ornare non vel felis. Nulla\r\nfacilisi. Vivamus suscipit cursus volutpat.\r\n</p>'),
-(24, 'spa', 'Page', 3, 'content', '<p>Fusce sed massa magna, ac lobortis tellus. Morbi quis nulla dolor, quis\r\npretium urna. Suspendisse et dui in turpis fermentum tincidunt sit amet\r\nsed libero. Nullam sollicitudin, metus non volutpat commodo, neque\r\nneque fermentum diam, et tincidunt lacus ligula eget eros. Sed laoreet\r\ncongue luctus. Ut consectetur tellus at mauris pulvinar auctor. Vivamus\r\npretium arcu eget elit varius auctor. Curabitur malesuada faucibus\r\npellentesque. Morbi ut leo magna. Vivamus tincidunt rhoncus\r\nscelerisque. Donec mi dui, adipiscing tristique viverra eu, convallis\r\nsed lacus. Quisque rutrum, lorem id varius pretium, urna erat tempus\r\nelit, vitae vulputate felis ante sed odio. In purus lectus, eleifend\r\neget iaculis sed, eleifend et odio. Vivamus venenatis feugiat turpis,\r\nat fringilla lacus dignissim ut. Mauris imperdiet turpis eget nisi\r\naliquam lobortis.\r\n</p>');
+(22, 'eng', 'Page', 3, 'content', '<p>sas</p>'),
+(23, 'cat', 'Page', 3, 'content', '<p>a</p>'),
+(24, 'spa', 'Page', 3, 'content', '<p>spa</p>'),
+(25, 'eng', 'Page', 4, 'title', 'deepest'),
+(26, 'cat', 'Page', 4, 'title', 'deepest'),
+(27, 'spa', 'Page', 4, 'title', 'deepest'),
+(28, 'eng', 'Page', 4, 'content', ''),
+(29, 'cat', 'Page', 4, 'content', ''),
+(30, 'spa', 'Page', 4, 'content', '');
 
 -- --------------------------------------------------------
 
@@ -159,14 +165,14 @@ INSERT INTO `i18n` (`id`, `locale`, `model`, `foreign_key`, `field`, `content`) 
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
@@ -174,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 --
 
 INSERT INTO `news` (`id`, `active`, `created`, `modified`, `title`, `slug`, `content`) VALUES
-(1, 0, '2010-03-08 12:49:10', '2010-03-08 12:49:10', 'title in eng', 'title_in_eng_1', '');
+(1, 0, '2010-03-08 12:49:10', '2010-03-13 14:14:53', 'title in eng', 'title_in_eng_1', '<p>The content in english</p>');
 
 -- --------------------------------------------------------
 
@@ -183,7 +189,7 @@ INSERT INTO `news` (`id`, `active`, `created`, `modified`, `title`, `slug`, `con
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `lft` int(11) NOT NULL,
   `rght` int(11) NOT NULL,
   `order` int(11) NOT NULL,
@@ -193,17 +199,21 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `parent_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
+  `template` int(11) NOT NULL,
+  `show_menu_top` tinyint(1) NOT NULL,
+  `show_menu_bottom` tinyint(1) NOT NULL,
   `content` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `pages`
 --
 
-INSERT INTO `pages` (`id`, `lft`, `rght`, `order`, `active`, `created`, `modified`, `parent_id`, `title`, `slug`, `content`) VALUES
-(1, 1, 2, 0, 0, '2010-03-08 10:14:55', '2010-03-08 16:04:58', 0, 'Home', 'home', '<p>this is the home page</p>'),
-(3, 3, 4, 0, 0, '2010-03-08 15:59:45', '2010-03-08 16:08:32', 0, 'testa', 'test', '<p>Duis ut risus velit. Sed placerat magna et felis porta volutpat\r\nhendrerit est facilisis. Cras pulvinar viverra augue at rhoncus.\r\nSuspendisse scelerisque massa fermentum eros vulputate tincidunt sit\r\namet vel est. Cras metus magna, porta vel facilisis sed, aliquam a\r\nnibh. Nulla sed pellentesque eros. Cras volutpat lacus sed ante\r\nlobortis egestas. Fusce aliquet scelerisque libero, id egestas lorem\r\nsagittis a. Duis quis diam nec eros auctor ornare non vel felis. Nulla\r\nfacilisi. Vivamus suscipit cursus volutpat.\r\n</p>');
+INSERT INTO `pages` (`id`, `lft`, `rght`, `order`, `active`, `created`, `modified`, `parent_id`, `title`, `slug`, `template`, `show_menu_top`, `show_menu_bottom`, `content`) VALUES
+(1, 1, 2, 0, 0, '2010-03-08 10:14:55', '2010-03-15 01:32:22', 0, 'Casa', 'home', 0, 1, 1, '<p>Esta es la pagina de inicio</p>'),
+(3, 3, 4, 0, 0, '2010-03-08 15:59:45', '2010-03-15 01:22:16', 1, 'test', 'test', 0, 1, 0, '<p>sas</p>'),
+(4, 5, 6, 0, 0, '2010-03-15 01:14:44', '2010-03-15 01:33:59', 3, 'deepest', 'deepest', 0, 1, 0, '');
 
 -- --------------------------------------------------------
 
@@ -212,7 +222,7 @@ INSERT INTO `pages` (`id`, `lft`, `rght`, `order`, `active`, `created`, `modifie
 --
 
 CREATE TABLE IF NOT EXISTS `resources` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `parent_id` int(11) NOT NULL,
@@ -220,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `resources` (
   `size` int(11) NOT NULL,
   `path` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
@@ -235,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `resources` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
@@ -246,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(255) NOT NULL,
   `telephone_home` varchar(255) NOT NULL,
   `telephone_work` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
 --
@@ -255,3 +265,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `active`, `created`, `modified`, `username`, `password`, `email`, `first_name`, `last_name`, `telephone_home`, `telephone_work`) VALUES
 (31, 1, '2010-01-18 13:17:16', '2010-03-05 16:49:18', 'admin', '8ab7c660463aa5c25d062ebc490d02b20a02f7d4', 'undefined.behaviour@gmail.com', 'Mariano', 'Simone', '', '');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
